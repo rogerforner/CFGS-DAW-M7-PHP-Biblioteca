@@ -36,6 +36,20 @@ if ($result===TRUE){
 
 $conexion->close();
 }
+
+// public function mostrardades(){
+// include_once('dades.php');
+// $cadena= "select * from Autors";
+// $result = $conexion->query($cadena);
+// if ($result===TRUE){
+// 	echo"very gooood";
+// }else{
+// 	echo"very vad las cahat";
+// }
+//
+// $conexion->close();
+// }
+
 }
 
 

@@ -25,16 +25,20 @@ public function getnacionalitat(){
 
 public function introduirdades(){
 include_once('dades.php');
-$cadena= "insert into Generes(nom,descripcio)values('$this->genere','$this->descripcio')";
-$result = $conexion->query($cadena);
+
+$cadena = "insert into Autors(Nom,Cognom,Nacionalitat)Values('$this->nom','$this->cognom','$this->nacionalitat')";
+$result=$conexio->query($cadena)
 if ($result===TRUE){
 	echo"very gooood";
 }else{
 	echo"very vad las cahat";
+	//echo"Error: ".$cadena. "<br>".$result->error;
 }
 
 $conexion->close();
 }
 }
+
+
 
 ?>

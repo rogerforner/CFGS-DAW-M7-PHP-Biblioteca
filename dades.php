@@ -1,7 +1,7 @@
 <?php
 $server = 'localhost';
-$usuari = 'jordi';
-$passwd = 'jordi';
+$usuari = 'grup1';
+$passwd = 'grup1';
 $database= 'biblioteca';
 
 

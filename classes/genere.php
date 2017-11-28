@@ -8,7 +8,7 @@ public $descripcio;
 public function __construct($genere,$descripcio){
 	$this->genere=$genere;
 	$this->descripcio=$descripcio;
-	
+
 }
 
 public function getgenere(){
@@ -28,7 +28,7 @@ if ($result===TRUE){
 	echo"very vad las cahat";
 }
 
-$conexion->close(); 
+$conexion->close();
 }
 }
 

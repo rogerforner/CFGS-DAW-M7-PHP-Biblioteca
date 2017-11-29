@@ -1,10 +1,17 @@
-# M07_UF3_ABP1
-> MP07 - Desenvolupament d'interfícies,
-> Institut de l'Ebre. DAM
+> M07 - Desenvolupament web en entorn servidor. Institut Montsià.
+> Desenvolupament d'Aplicacions Web (DAW).
+
+**Taula de continguts**
+- [Introducció](#introduccio)
+- [Col·laboradors](#collaboradors)
+- [Diagrames](#diagrames)
 
 # Introducció
 
+# Diagrames
+
 # Col·laboradors
-- Jordi -> @ssjordiss
-- Diego -> @diegolagalera
-- Roger -> @rogerforner
+**Grup 1**
+- Jordi S.
+- Diego M.
+- Roger F.

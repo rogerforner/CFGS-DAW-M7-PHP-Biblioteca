@@ -1,8 +1,8 @@
 <?php
-$server = 'localhost';
-$usuari = 'grup1';
-$passwd = 'grup1';
-$database= 'biblioteca';
+$server   = 'localhost';
+$usuari   = 'grup1';
+$passwd   = 'grup1';
+$database = 'biblioteca';
 
 
 $conexion = new mysqli();

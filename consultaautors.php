@@ -3,9 +3,9 @@
 include_once('dades.php');
 //$cadena= "insert into Autors(nom,cognom,nacionalitat)Values('hola','hola','hola')";
 
-$cadena= "SELECT * FROM Autors";
+$cadena= "select * from Autors";
 $result = $conexion->query($cadena);
-if ($result===TRUE){
+if (!empty($result)){
 	echo"very gooood";
 }else{
 	echo"very vad las cahat".$cadena."aaa".$conexion->error;
@@ -27,11 +27,11 @@ $conexion->close();
           <th>nacionalitat</th>
         </tr>
         <?php
-        while ($registroautors=$result->fetch_array(MSQLI_BOTH)) {
+        while ($registroautors=$result->fetch_assoc()) {
           echo '<tr>
-                <td>'.$registroautors['nom'].'</td>
-                <td>'.$registroautors['cognom'].'</td>
-                <td>'.$registroautors['nacionalitat'].'</td>
+                <td>'.$registroautors['Nom'].'</td>
+                <td>'.$registroautors['Cognom'].'</td>
+                <td>'.$registroautors['Nacionalitat'].'</td>
                 </tr>';
         }
         ?>

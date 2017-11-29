@@ -2,7 +2,7 @@
 > Desenvolupament d'Aplicacions Web (DAW).
 
 **Taula de continguts**
-- [Introducció](#introduccio)
+- [Introducció](#introducció)
 - [Col·laboradors](#collaboradors)
 - [Diagrames](#diagrames)
 

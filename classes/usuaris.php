@@ -137,7 +137,7 @@ class usuaris {
 	public function introduirdades() {
 		include_once('dades.php');
 
-		$cadena= "INSERT INTO usuaris(DNI, Nom, Cognom, Adreca, Poblacio, Provincia, Nacionalitat, Adreca_electronica, Telefon, Data_naixement)
+		$cadena= "INSERT INTO Usuaris(DNI, Nom, Cognom, Adreca, Poblacio, Provincia, Nacionalitat, Adreca_electronica, Telefon, Data_naixement)
 		VALUES(
 			'$this->dni',
 			'$this->nom',
@@ -157,7 +157,7 @@ class usuaris {
 			echo"very gooood";
 
 		} else{
-			echo"very vad las cahat";
+			echo"very vad las cahat: ".$conexion->error;
 		}
 
 		$conexion->close();

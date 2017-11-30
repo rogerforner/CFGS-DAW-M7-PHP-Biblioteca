@@ -138,6 +138,7 @@ $conexion->close();
   												</form>
                         </div>
 											</td>
+
 					            </tr>';
 
 						    '<td style="text-align:center">
@@ -146,6 +147,7 @@ $conexion->close();
 					      </form>
 						</td>
 				            </tr >';
+
 					    }
 
 					    ?>

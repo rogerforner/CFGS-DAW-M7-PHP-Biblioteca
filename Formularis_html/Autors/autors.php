@@ -19,7 +19,7 @@ public $id;
    public function __construct1($id)
    {
      $this->id=$id;
-   }   
+   }
    public function __construct2($a1,$a2)
    {
      echo "__construct con 2 params llamado: " . $a1 . "," . $a2;
@@ -49,7 +49,7 @@ public function getnacionalitat(){
 
 
 public function introduirdades(){
-include_once('dades.php');
+include_once('../dades.php');
 $cadena= "insert into Autors(nom,cognom,nacionalitat)Values('$this->nom','$this->cognom','$this->nacionalitat')";
 $result = $conexion->query($cadena);
 if ($result===TRUE){
@@ -62,7 +62,7 @@ $conexion->close();
 }
 
 public function eliminardades(){
-include_once('dades.php');
+include_once('../dades.php');
 $cadena= "delete from biblioteca.Autors where ID_Autor=$this->id";
 $result = $conexion->query($cadena);
 if ($result===TRUE){

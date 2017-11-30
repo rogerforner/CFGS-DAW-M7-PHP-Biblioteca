@@ -63,22 +63,22 @@ $conexion->close();
 			        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
 			      </div>
 			      <div class="modal-body">
-			        <form action="../altaautors.php" method="post">
+			        <form action="Autors/altaautors.php" method="post">
 			          <div class="form-row">
 			            <!-- Nom -->
 			            <div class="col">
 			              <div class="form-group">
 			                <label for="autorNom">Nom</label>
 			                <input type="text" name="nom" class="form-control" id="autorNom" aria-describedby="nomAjuda" required>
-			                <small id="nomAjuda" class="form-text text-muted">El nom de l'autor.</small>
+			                <small class="form-text text-muted">El nom de l'autor.</small>
 			              </div>
 			            </div>
 			            <!-- Cognom -->
 			            <div class="col">
 			              <div class="form-group">
 			                <label for="autorCognom">Cognom</label>
-			                <input type="text" name="cognom" class="form-control" id="autorCognom" aria-describedby="cognomAjuda" required>
-			                <small id="cognomAjuda" class="form-text text-muted">El cognom de l'autor.</small>
+			                <input type="text" name="cognom" class="form-control" aria-describedby="cognomAjuda" required>
+			                <small class="form-text text-muted">El cognom de l'autor.</small>
 			              </div>
 			            </div>
 			          </div>
@@ -86,8 +86,8 @@ $conexion->close();
 			          <!-- Nacionalitat -->
 			          <div class="form-group">
 			            <label for="autorNacionalitat">Nacionalitat</label>
-			            <input type="text" name="nacionalitat" class="form-control" id="autorNacionalitat" aria-describedby="nacionalitatAjuda" required>
-			            <small id="nacionalitatAjuda" class="form-text text-muted">La nacionalitat de l'autor.</small>
+			            <input type="text" name="nacionalitat" class="form-control" aria-describedby="nacionalitatAjuda" required>
+			            <small class="form-text text-muted">La nacionalitat de l'autor.</small>
 			          </div>
 
 			          <!-- Submit -->
@@ -102,9 +102,12 @@ $conexion->close();
 			  </div>
 			</div>
 			<!-- End Modal -->
+      <!-- SearchBox -->
 
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <br/>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-12">
 					<section>
 					  <table class="table table-striped table-bordered">
 					    <tr class="success">
@@ -112,8 +115,11 @@ $conexion->close();
 					      <th style="text-align:center">Nom</th>
 					      <th style="text-align:center">Cognom</th>
 					      <th style="text-align:center">Nacionalitat</th>
+                <th style="text-align:center" class="col-md-3"></th>
 					    </tr>
+              <tbody id="myTable">
 					    <?php
+
 					    while ($registroautors=$result->fetch_assoc()) {
 					      echo '<tr class="warning">
 											<td style="text-align:center"><input type="checkbox" name="vehicle" value="'.$registroautors['ID_Autor'].'"></td>
@@ -121,13 +127,22 @@ $conexion->close();
 					            <td style="text-align:center">'.$registroautors['Cognom'].'</td>
 					            <td style="text-align:center">'.$registroautors['Nacionalitat'].'</td>
 											<td style="text-align:center">
-											 	<form action="../eliminarautors.php" method="post">
-													<button type="submit" name="id" class="btn btn-danger" value="'.$registroautors['ID_Autor'].'">eliminar</button>
-												</form>
+                        <div class="col-md-3">
+  											 	<form action="Autors/eliminarautors.php" method="post">
+  													<button type="submit" name="id" class="btn btn-danger" value="'.$registroautors['ID_Autor'].'">eliminar</button>
+  												</form>
+                        </div>
+                        <div class="col-md-5">
+                          <form action="../editarautors.php" method="post">
+  													<button type="submit" name="id" class="btn btn-danger" value="'.$registroautors['ID_Autor'].'">editar</button>
+  												</form>
+                        </div>
 											</td>
 					            </tr >';
 					    }
+
 					    ?>
+              </tbod>
 					  </table>
 					</section>
 
@@ -145,6 +160,15 @@ $conexion->close();
     <script src="Starter%20Template%20for%20Bootstrap_files/bootstrap.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="Starter%20Template%20for%20Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
-
+    <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
 
 </body></html>

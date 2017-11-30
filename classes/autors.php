@@ -19,7 +19,7 @@ public $id;
    public function __construct1($id)
    {
      $this->id=$id;
-   }   
+   }
    public function __construct2($a1,$a2)
    {
      echo "__construct con 2 params llamado: " . $a1 . "," . $a2;

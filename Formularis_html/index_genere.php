@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once('../dades.php');
-$cadena= "select * from Autors";
+$cadena= "select * from Generes";
 $result = $conexion->query($cadena);
 $conexion->close();
 ?>
@@ -60,28 +60,29 @@ $conexion->close();
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+			        <h4 class="modal-title" id="myModalLabel">Gènere</h4>
 			      </div>
 			      <div class="modal-body">
 			        <form action="Generes/altagenere.php" method="post">
 			          <div class="form-row">
-			            <!-- Nom -->
+			            <!-- Genere -->
 			            <div class="col">
 			              <div class="form-group">
-			                <label for="autorNom">Genere</label>
-			                <input type="text" name="nom" class="form-control" id="autorNom" aria-describedby="nomAjuda" required>
-			                <small id="nomAjuda" class="form-text text-muted">Nom del genere.</small>
+			                <label for="autorNom">Gènere</label>
+			                <input type="text" name="genere" class="form-control" aria-describedby="GenereAjuda" required>
+			                <small class="form-text text-muted">El nom del gènere</small>
 			              </div>
 			            </div>
-			            <!-- Cognom -->
+			            <!-- Descripcio -->
 			            <div class="col">
 			              <div class="form-group">
 			                <label for="autorCognom">Descripció</label>
-			                <input type="text" name="cognom" class="form-control" id="autorCognom" aria-describedby="cognomAjuda" required>
-			                <small id="cognomAjuda" class="form-text text-muted">Descripció del genere.</small>
+			                <input type="text" name="desc" class="form-control"  aria-describedby="descripcioAjuda" required>
+			                <small class="form-text text-muted">La descripció del gènere</small>
 			              </div>
 			            </div>
 			          </div>
+
 
 			          <!-- Submit -->
 			          <button type="submit" class="btn btn-primary">Afegir</button>
@@ -95,7 +96,6 @@ $conexion->close();
 			  </div>
 			</div>
 			<!-- End Modal -->
-
 			<div class="row">
 				<div class="col-md-4">
 					<section>
@@ -104,19 +104,21 @@ $conexion->close();
 								<th style="text-align:center">check</th>
 					      <th style="text-align:center">Genere</th>
 					      <th style="text-align:center">Cognom</th>
-					      <th style="text-align:center">Nacionalitat</th>
+					      
 					    </tr>
 					    <?php
-					    while ($registroautors=$result->fetch_assoc()) {
+					    while ($registregenere=$result->fetch_assoc()) {
 					      echo '<tr class="warning">
-											<td style="text-align:center"><input type="checkbox" name="vehicle" value="'.$registroautors['ID_Autor'].'"></td>
-					            <td style="text-align:center">'.$registroautors['Nom'].'</td>
-					            <td style="text-align:center">'.$registroautors['Cognom'].'</td>
-					            <td style="text-align:center">'.$registroautors['Nacionalitat'].'</td>
-											<td style="text-align:center">
-											 	<form action="../eliminarautors.php" method="post">
-													<button type="submit" name="id" class="btn btn-danger" value="'.$registroautors['ID_Autor'].'">eliminar</button>
-												</form>
+						    <td style="text-align:center">
+						    <input type="checkbox" name="vehicle" value="'.$registregenere['ID_Genere'].'"></td>
+					            <td style="text-align:center">'.$registregenere['Nom'].'</td>
+					            <td style="text-align:center">'.$registregenere['Descripcio'].'</td>
+						    <td style="text-align:center">
+		         			    <form action="Generes/eliminargenere.php" method="post">
+
+				<button type="submit" name="id" class="btn btn-danger" value="'.$registregenere['ID_Genere'].'">eliminar</button>
+
+	  					</form>
 											</td>
 					            </tr >';
 					    }

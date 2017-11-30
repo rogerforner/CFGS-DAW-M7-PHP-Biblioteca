@@ -38,8 +38,8 @@ $conexion->close();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Autors</a></li>
-            <li><a href="index_genere.php">Generes</a></li>
+            <li ><a href="Crear_autors.php">Autors</a></li>
+            <li class="active"><a href="#">Generes</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -50,7 +50,7 @@ $conexion->close();
 		<div class="container">
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addautor">
-			  Crear Autor
+			  Crear Genere
 			</button>
 			<br/>
 			<br/>
@@ -63,31 +63,24 @@ $conexion->close();
 			        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
 			      </div>
 			      <div class="modal-body">
-			        <form action="../altaautors.php" method="post">
+			        <form action="Generes/altagenere.php" method="post">
 			          <div class="form-row">
 			            <!-- Nom -->
 			            <div class="col">
 			              <div class="form-group">
-			                <label for="autorNom">Nom</label>
+			                <label for="autorNom">Genere</label>
 			                <input type="text" name="nom" class="form-control" id="autorNom" aria-describedby="nomAjuda" required>
-			                <small id="nomAjuda" class="form-text text-muted">El nom de l'autor.</small>
+			                <small id="nomAjuda" class="form-text text-muted">Nom del genere.</small>
 			              </div>
 			            </div>
 			            <!-- Cognom -->
 			            <div class="col">
 			              <div class="form-group">
-			                <label for="autorCognom">Cognom</label>
+			                <label for="autorCognom">Descripció</label>
 			                <input type="text" name="cognom" class="form-control" id="autorCognom" aria-describedby="cognomAjuda" required>
-			                <small id="cognomAjuda" class="form-text text-muted">El cognom de l'autor.</small>
+			                <small id="cognomAjuda" class="form-text text-muted">Descripció del genere.</small>
 			              </div>
 			            </div>
-			          </div>
-
-			          <!-- Nacionalitat -->
-			          <div class="form-group">
-			            <label for="autorNacionalitat">Nacionalitat</label>
-			            <input type="text" name="nacionalitat" class="form-control" id="autorNacionalitat" aria-describedby="nacionalitatAjuda" required>
-			            <small id="nacionalitatAjuda" class="form-text text-muted">La nacionalitat de l'autor.</small>
 			          </div>
 
 			          <!-- Submit -->
@@ -109,7 +102,7 @@ $conexion->close();
 					  <table class="table table-striped table-bordered">
 					    <tr class="success">
 								<th style="text-align:center">check</th>
-					      <th style="text-align:center">Nom</th>
+					      <th style="text-align:center">Genere</th>
 					      <th style="text-align:center">Cognom</th>
 					      <th style="text-align:center">Nacionalitat</th>
 					    </tr>

@@ -54,7 +54,6 @@ $conexion->close();
 			</button>
 			<br/>
 			<br/>
-			<!-- Modal -->
 			<div class="modal fade" id="addautor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
@@ -63,26 +62,27 @@ $conexion->close();
 			        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
 			      </div>
 			      <div class="modal-body">
-			        <form action="../altaautors.php" method="post">
+			        <form action="Generes/altagenere.php" method="post">
 			          <div class="form-row">
 			            <!-- Nom -->
 			            <div class="col">
 			              <div class="form-group">
-			                <label for="autorNom">Genere</label>
-			                <input type="text" name="nom" class="form-control" id="autorNom" aria-describedby="nomAjuda" required>
-			                <small id="nomAjuda" class="form-text text-muted">Nom del genere.</small>
+			                <label for="autorNom">Nom</label>
+			                <input type="text" name="genere" class="form-control" id="autorNom" aria-describedby="nomAjuda" required>
+			                <small id="nomAjuda" class="form-text text-muted">El nom de l'autor.</small>
 			              </div>
 			            </div>
 			            <!-- Cognom -->
 			            <div class="col">
 			              <div class="form-group">
-			                <label for="autorCognom">Descripció</label>
-			                <input type="text" name="cognom" class="form-control" id="autorCognom" aria-describedby="cognomAjuda" required>
-			                <small id="cognomAjuda" class="form-text text-muted">Descripció del genere.</small>
+			                <label for="autorCognom">Cognom</label>
+			                <input type="text" name="desc" class="form-control" id="autorCognom" aria-describedby="cognomAjuda" required>
+			                <small id="cognomAjuda" class="form-text text-muted">El cognom de l'autor.</small>
 			              </div>
 			            </div>
 			          </div>
 
+			         
 			          <!-- Submit -->
 			          <button type="submit" class="btn btn-primary">Afegir</button>
 			        </form>
@@ -110,9 +110,8 @@ $conexion->close();
 					    while ($registroautors=$result->fetch_assoc()) {
 					      echo '<tr class="warning">
 											<td style="text-align:center"><input type="checkbox" name="vehicle" value="'.$registroautors['ID_Autor'].'"></td>
-					            <td style="text-align:center">'.$registroautors['Nom'].'</td>
-					            <td style="text-align:center">'.$registroautors['Cognom'].'</td>
-					            <td style="text-align:center">'.$registroautors['Nacionalitat'].'</td>
+					            <td style="text-align:center">'.$registroautors['genere'].'</td>
+					            <td style="text-align:center">'.$registroautors['desc'].'</td>
 											<td style="text-align:center">
 											 	<form action="../eliminarautors.php" method="post">
 													<button type="submit" name="id" class="btn btn-danger" value="'.$registroautors['ID_Autor'].'">eliminar</button>

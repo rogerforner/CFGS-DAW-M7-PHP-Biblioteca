@@ -138,7 +138,14 @@ $conexion->close();
   												</form>
                         </div>
 											</td>
-					            </tr >';
+					            </tr>';
+
+						    '<td style="text-align:center">
+					 	    <form action="../eliminarautors.php" method="post">
+                <button type="submit" name="id" class="btn btn-danger" value="'.$registroautors['ID_Autor'].'">eliminar</button>
+					      </form>
+						</td>
+				            </tr >';
 					    }
 
 					    ?>

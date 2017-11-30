@@ -126,6 +126,7 @@ $conexion->close();
 					            <td style="text-align:center">'.$registroautors['Nom'].'</td>
 					            <td style="text-align:center">'.$registroautors['Cognom'].'</td>
 					            <td style="text-align:center">'.$registroautors['Nacionalitat'].'</td>
+<<<<<<< HEAD:Formularis_html/Index_autors.php
 											<td style="text-align:center">
                         <div class="col-md-3">
   											 	<form action="Autors/eliminarautors.php" method="post">
@@ -139,6 +140,13 @@ $conexion->close();
                         </div>
 											</td>
 					            </tr >';
+=======
+						    <td style="text-align:center">
+					 	    <form action="../eliminarautors.php" method="post">						<button type="submit" name="id" class="btn btn-danger" value="'.$registroautors['ID_Autor'].'">eliminar</button>
+					            </form>
+						</td>
+				            </tr >';
+>>>>>>> 9733564ce1647d1a522e15114c9103f83a3a26be:Formularis_html/Crear_autors.php
 					    }
 
 					    ?>

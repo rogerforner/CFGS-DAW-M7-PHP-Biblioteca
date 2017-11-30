@@ -1,9 +1,8 @@
 <?php
 include_once('genere.php');
 
-$gen = new generes($_POST["genere"],$_POST["desc"]);
+$genere = new generes($_POST["id"]);
 
-
-$gen->introduirdades();
+$genere-> eliminardades();
 header("Location:../index_genere.php")
 ?>

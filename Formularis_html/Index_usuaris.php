@@ -38,7 +38,7 @@ $conexion->close();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Autors</a></li>
+            <li><a href="#">Usuaris</a></li>
             <li><a href="index_genere.php">Generes</a></li>
             <li class="active"><a href="#">Usuaris</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -200,20 +200,20 @@ $conexion->close();
                   <td style="text-align:center"><?= $registreUsuaris['Data_naixement']; ?></td>
                   <td style="text-align:center">
                   <div class="col-md-3">
-                  <form action="Autors/eliminarautors.php" method="post">
-                  <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">eliminar</button>
+                  <form action="Usuaris/eliminarusuaris.php" method="post">
+                    <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">eliminar</button>
                   </form>
                   </div>
                   <div class="col-md-5">
-                  <form action="../editarautors.php" method="post">
-                  <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">editar</button>
+                  <form action="../editarusuaris.php" method="post">
+                    <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">editar</button>
                   </form>
                   </div>
                   </td>
                 </tr>
                 <tr>
                   <td style="text-align:center">
-                    <form action="../eliminarautors.php" method="post">
+                    <form action="../eliminarusuaris.php" method="post">
                       <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">eliminar</button>
                     </form>
                   </td>

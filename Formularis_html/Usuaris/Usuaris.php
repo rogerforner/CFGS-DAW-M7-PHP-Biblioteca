@@ -1,6 +1,14 @@
 <?php
+/*******************************************************************************
+************************************************************************ "ÍNDEX"
+* # Constructors
+* # Getters i Setters
+* # Funcions
+* ## introduirdades()
+* ## eliminardades()
+*******************************************************************************/
 
-class usuaris {
+class Usuaris {
 
 	public $dni;
 	public $nom;
@@ -13,19 +21,9 @@ class usuaris {
 	public $telefon;
 	public $naixement;
 
-	/**
-	 * [__construct description]
-	 * @param [type] $dni          [description]
-	 * @param [type] $nom          [description]
-	 * @param [type] $cognom       [description]
-	 * @param [type] $adreca       [description]
-	 * @param [type] $poblacio     [description]
-	 * @param [type] $provincia    [description]
-	 * @param [type] $nacionalitat [description]
-	 * @param [type] $email        [description]
-	 * @param [type] $telefon      [description]
-	 * @param [type] $naixement    [description]
-	 */
+	/*
+	# Constructors
+	----------------------------------------------------------------------------*/
 	public function __construct($dni, $nom, $cognom, $adreca, $poblacio, $provincia, $nacionalitat, $email, $telefon, $naixement){
 		$this->dni          = $dni;
 		$this->nom          = $nom;
@@ -39,101 +37,56 @@ class usuaris {
 		$this->naixement    = $naixement;
 	}
 
-	/**
-	 * Get the value of Dni
-	 *
-	 * @return mixed
-	 */
+	/*
+	# Getters i Setters
+	----------------------------------------------------------------------------*/
 	public function getDni() {
 			return $this->dni;
 	}
 
-	/**
-	 * Get the value of Nom
-	 *
-	 * @return mixed
-	 */
 	public function getNom() {
 			return $this->nom;
 	}
 
-	/**
-	 * Get the value of Cognom
-	 *
-	 * @return mixed
-	 */
 	public function getCognom() {
 			return $this->cognom;
 	}
 
-	/**
-	 * Get the value of Adreca
-	 *
-	 * @return mixed
-	 */
 	public function getAdreca() {
 			return $this->adreca;
 	}
 
-	/**
-	 * Get the value of Poblacio
-	 *
-	 * @return mixed
-	 */
 	public function getPoblacio() {
 			return $this->poblacio;
 	}
 
-	/**
-	 * Get the value of Provincia
-	 *
-	 * @return mixed
-	 */
 	public function getProvincia() {
 			return $this->provincia;
 	}
 
-	/**
-	 * Get the value of Nacionalitat
-	 *
-	 * @return mixed
-	 */
 	public function getNacionalitat() {
 			return $this->nacionalitat;
 	}
 
-	/**
-	 * Get the value of Email
-	 *
-	 * @return mixed
-	 */
 	public function getEmail() {
 			return $this->email;
 	}
 
-	/**
-	 * Get the value of Telefon
-	 *
-	 * @return mixed
-	 */
 	public function getTelefon() {
 			return $this->telefon;
 	}
 
-	/**
-	 * Get the value of Naixement
-	 *
-	 * @return mixed
-	 */
 	public function getNaixement() {
 			return $this->naixement;
 	}
 
 
-	/**
-	 * [introduirdades description]
-	 * @return [type] [description]
-	 */
+	/*
+	# Funcions
+	----------------------------------------------------------------------------*/
+	/*
+	## introduirdades()
+	----------------------------------------------------------------------------*/
 	public function introduirdades() {
 		include_once('dades.php');
 
@@ -154,10 +107,29 @@ class usuaris {
 		$result = $conexion->query($cadena);
 
 		if ($result === TRUE) {
-			echo"very gooood";
+			echo "OK";
 
 		} else{
-			echo"very vad las cahat: ".$conexion->error;
+			echo "Error: ".$conexion->error;
+		}
+
+		$conexion->close();
+	}
+
+	/*
+	## eliminardades()
+	----------------------------------------------------------------------------*/
+	public function eliminardades() {
+		include_once('../dades.php');
+
+		$cadena= "DELETE FROM biblioteca.Usuaris WHERE ID_Usuari = $this->id";
+		$result = $conexion->query($cadena);
+
+		if ($result === TRUE){
+			echo "OK";
+
+		} else{
+			echo "Error: ".$conexion->error;
 		}
 
 		$conexion->close();

@@ -1,5 +1,5 @@
 <?php
-include_once('classes/usuaris.php');
+include_once('usuaris.php');
 
 $usuaris = new usuaris(
   $_POST["dni"],
@@ -15,4 +15,6 @@ $usuaris = new usuaris(
 );
 
 $usuaris->introduirdades();
+
+header("Location:../Index_usuaris.php");
 ?>

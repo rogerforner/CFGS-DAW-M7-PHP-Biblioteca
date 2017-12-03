@@ -22,6 +22,8 @@ $conexion->close();
     <!-- Custom styles for this template -->
     <link href="Starter%20Template%20for%20Bootstrap_files/starter-template.css" rel="stylesheet">
     <script src="Starter%20Template%20for%20Bootstrap_files/ie-emulation-modes-warning.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -68,7 +70,9 @@ $conexion->close();
 			        <h4 class="modal-title" id="myModalLabel">Afegir Usuari</h4>
 			      </div>
 			      <div class="modal-body">
-			        <form action="Usuaris/altausuaris.php" method="post">
+              <!-- FORMULARI AFEGIR USUARI
+              ============================= -->
+			        <form id="afegirUsuari">
                 <!-- DNI -->
                 <div class="form-group">
                   <label for="usuariDNI">DNI</label>
@@ -154,7 +158,7 @@ $conexion->close();
 
                 <!-- Afegir
                 =============== -->
-                <button type="submit" class="btn btn-primary">Afegir</button>
+                <button onclick="afegirUsuari()" class="btn btn-primary">Afegir</button>
 			        </form>
 			      </div>
 
@@ -166,11 +170,11 @@ $conexion->close();
 			</div>
 			<!-- End Modal -->
 
+
       <!-- SearchBox
       ================================================== -->
       <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
       <br/>
-
 			<div class="row">
 				<div class="col-md-12">
 					<section>
@@ -204,28 +208,20 @@ $conexion->close();
                   <td style="text-align:center"><?= $registreUsuaris['Telefon']; ?></td>
                   <td style="text-align:center"><?= $registreUsuaris['Data_naixement']; ?></td>
                   <td style="text-align:center">
-                  <div class="col-md-3">
-                    <!-- Eliminar
-                    =============== -->
-                    <form action="Usuaris/eliminarusuaris.php" method="post">
-                      <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">eliminar</button>
-                    </form>
-                  </div>
-                  <!-- Editar
-                    =============== -->
-                  <div class="col-md-5">
-                    <form action="Usuaris/editarusuaris.php" method="post">
-                      <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">editar</button>
-                    </form>
-                  </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">
-                    <!-- Eliminar
-                    =============== -->
-                    <form action="Usuaris/eliminarusuaris.php" method="post">
-                      <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">eliminar</button>
+                    <!-- FORMULARI TRACTAR USUARI
+                    ============================= -->
+                    <form>
+                      <input type="hidden" name="id" value="<?= $registreUsuaris['ID_Usuari']; ?>">
+                      <div class="btn-group" role="group" aria-label="...">
+                        <!-- Eliminar -->
+                        <button onclick="eliminarUsuari()" title="Eliminar" class="btn btn-danger">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                        <!-- Editar -->
+                        <button onclick="editarUsuari()" title="Editar" class="btn btn-danger">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
+                      </div>
                     </form>
                   </td>
                 </tr>
@@ -256,5 +252,8 @@ $conexion->close();
       });
     });
     </script>
+
+    <!-- AJAX -->
+    <script src="Usuaris/ajax-afegir.js"></script>
     
 </body></html>

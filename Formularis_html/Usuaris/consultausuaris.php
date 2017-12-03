@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include_once('dades.php');
+include_once('../dades.php');
 
 $cadena= "SELECT * FROM Usuaris";
 $result = $conexion->query($cadena);
@@ -8,8 +8,7 @@ $result = $conexion->query($cadena);
 if (!empty($result)){
 	echo"OK";
 
-}else{
-
+} else{
 	echo"Error: ".$cadena." | ".$conexion->error;
 }
 

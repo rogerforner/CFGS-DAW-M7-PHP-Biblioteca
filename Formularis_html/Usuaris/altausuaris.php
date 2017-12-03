@@ -1,5 +1,5 @@
 <?php
-include_once('usuaris.php');
+include_once('Usuaris.php');
 
 $usuaris = new usuaris(
   $_POST["dni"],

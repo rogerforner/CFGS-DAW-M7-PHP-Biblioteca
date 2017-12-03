@@ -10,16 +10,16 @@
 
 class Usuaris {
 
-	public $dni;
-	public $nom;
-	public $cognom;
-	public $adreca;
-	public $poblacio;
-	public $provincia;
-	public $nacionalitat;
-	public $email;
-	public $telefon;
-	public $naixement;
+	private $dni;
+	private $nom;
+	private $cognom;
+	private $adreca;
+	private $poblacio;
+	private $provincia;
+	private $nacionalitat;
+	private $email;
+	private $telefon;
+	private $naixement;
 
 	/*
 	# Constructors
@@ -41,43 +41,43 @@ class Usuaris {
 	# Getters i Setters
 	----------------------------------------------------------------------------*/
 	public function getDni() {
-			return $this->dni;
+		return $this->dni;
 	}
 
 	public function getNom() {
-			return $this->nom;
+		return $this->nom;
 	}
 
 	public function getCognom() {
-			return $this->cognom;
+		return $this->cognom;
 	}
 
 	public function getAdreca() {
-			return $this->adreca;
+		return $this->adreca;
 	}
 
 	public function getPoblacio() {
-			return $this->poblacio;
+		return $this->poblacio;
 	}
 
 	public function getProvincia() {
-			return $this->provincia;
+		return $this->provincia;
 	}
 
 	public function getNacionalitat() {
-			return $this->nacionalitat;
+		return $this->nacionalitat;
 	}
 
 	public function getEmail() {
-			return $this->email;
+		return $this->email;
 	}
 
 	public function getTelefon() {
-			return $this->telefon;
+		return $this->telefon;
 	}
 
 	public function getNaixement() {
-			return $this->naixement;
+		return $this->naixement;
 	}
 
 
@@ -88,7 +88,7 @@ class Usuaris {
 	## introduirdades()
 	----------------------------------------------------------------------------*/
 	public function introduirdades() {
-		include_once('dades.php');
+		include_once('../dades.php');
 
 		$cadena= "INSERT INTO Usuaris(DNI, Nom, Cognom, Adreca, Poblacio, Provincia, Nacionalitat, Adreca_electronica, Telefon, Data_naixement)
 		VALUES(

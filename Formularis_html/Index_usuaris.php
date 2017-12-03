@@ -50,14 +50,16 @@ $conexion->close();
 		<br/>
 
 		<div class="container">
-			<!-- Button trigger modal -->
+			<!-- Button trigger MODAL
+      ================================================== -->
 			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addusuari">
 			  Afegir Usuari
 			</button>
 			<br/>
 			<br/>
 
-			<!-- Modal -->
+			<!-- MODAL
+      ================================================== -->
 			<div class="modal fade" id="addusuari" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
@@ -150,10 +152,12 @@ $conexion->close();
                   <small id="naixementAjuda" class="form-text text-muted">Data de naixement de l'usuari.</small>
                 </div>
 
-                <!-- Submit -->
+                <!-- Afegir
+                =============== -->
                 <button type="submit" class="btn btn-primary">Afegir</button>
 			        </form>
 			      </div>
+
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
 			      </div>
@@ -162,8 +166,9 @@ $conexion->close();
 			</div>
 			<!-- End Modal -->
 
-      <!-- SearchBox -->
-      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <!-- SearchBox
+      ================================================== -->
+      <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
       <br/>
 
 			<div class="row">
@@ -200,20 +205,26 @@ $conexion->close();
                   <td style="text-align:center"><?= $registreUsuaris['Data_naixement']; ?></td>
                   <td style="text-align:center">
                   <div class="col-md-3">
-                  <form action="Usuaris/eliminarusuaris.php" method="post">
-                    <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">eliminar</button>
-                  </form>
+                    <!-- Eliminar
+                    =============== -->
+                    <form action="Usuaris/eliminarusuaris.php" method="post">
+                      <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">eliminar</button>
+                    </form>
                   </div>
+                  <!-- Editar
+                    =============== -->
                   <div class="col-md-5">
-                  <form action="../editarusuaris.php" method="post">
-                    <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">editar</button>
-                  </form>
+                    <form action="Usuaris/editarusuaris.php" method="post">
+                      <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">editar</button>
+                    </form>
                   </div>
                   </td>
                 </tr>
                 <tr>
                   <td style="text-align:center">
-                    <form action="../eliminarusuaris.php" method="post">
+                    <!-- Eliminar
+                    =============== -->
+                    <form action="Usuaris/eliminarusuaris.php" method="post">
                       <button type="submit" name="id" class="btn btn-danger" value="<?= $registreUsuaris['ID_Usuari']; ?>">eliminar</button>
                     </form>
                   </td>

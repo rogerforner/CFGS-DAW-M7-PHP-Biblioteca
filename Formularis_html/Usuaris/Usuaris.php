@@ -10,6 +10,7 @@
 
 class Usuaris {
 
+	private $id;
 	private $dni;
 	private $nom;
 	private $cognom;
@@ -24,22 +25,40 @@ class Usuaris {
 	/*
 	# Constructors
 	----------------------------------------------------------------------------*/
-	public function __construct($dni, $nom, $cognom, $adreca, $poblacio, $provincia, $nacionalitat, $email, $telefon, $naixement){
+	public function __construct() {
+		$args = func_get_args();
+		$num  = func_num_args();
+		$f    ='__construct'. $num;
+
+		if (method_exists($this, $f)) {   
+			call_user_func_array(array($this, $f), $args);
+		}
+	}
+
+	public function __construct1($id) {
+		$this->id = $id;
+	}
+
+	public function __construct10($dni, $nom, $cognom, $adreca, $poblacio, $provincia, $nacionalitat, $email, $telefon, $naixement) {
 		$this->dni          = $dni;
 		$this->nom          = $nom;
-		$this->cognom       = $cognom;
+		$this->cognom 			= $cognom;
 		$this->adreca       = $adreca;
 		$this->poblacio     = $poblacio;
 		$this->provincia    = $provincia;
 		$this->nacionalitat = $nacionalitat;
 		$this->email        = $email;
 		$this->telefon      = $telefon;
-		$this->naixement    = $naixement;
+		$this->naixement 		= $naixement;
 	}
 
 	/*
 	# Getters i Setters
 	----------------------------------------------------------------------------*/
+	public function getId() {
+		return $this->id;
+	}
+
 	public function getDni() {
 		return $this->dni;
 	}
@@ -137,7 +156,4 @@ class Usuaris {
 	}
 
 }
-
-
-
 ?>

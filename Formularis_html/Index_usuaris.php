@@ -212,13 +212,13 @@ $conexion->close();
                     <form id="tractarUsuari">
                       <input type="hidden" name="id" value="<?= $registreUsuaris['ID_Usuari']; ?>">
                       <div class="btn-group" role="group" aria-label="...">
+                        <!-- Editar -->
+                        <button onclick="editarUsuari()" title="Editar" class="btn btn-default">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
                         <!-- Eliminar -->
                         <button onclick="eliminarUsuari()" title="Eliminar" class="btn btn-danger">
                           <i class="fa fa-trash" aria-hidden="true"></i>
-                        </button>
-                        <!-- Editar -->
-                        <button onclick="editarUsuari()" title="Editar" class="btn btn-danger">
-                          <i class="fa fa-pencil" aria-hidden="true"></i>
                         </button>
                       </div>
                     </form>

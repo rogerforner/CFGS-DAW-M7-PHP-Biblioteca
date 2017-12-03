@@ -33,6 +33,23 @@ function afegirUsuari() {
 # Eliminar
 ------------------------------------------------------------------------------*/
 function eliminarUsuari() {
+	formData = $("form#tractarUsuari").serialize();
+  
+  $.ajax({
+  	type: "POST",
+  	url: "Usuaris/eliminarusuaris.php",
+  	data: formData,
+  })
+  .done(function(data, textStatus, jqXHR) {
+  	if (console && console.log) {
+  		console.log("La sol·licitud s'ha completat correctament.");
+  	}
+  })
+  .fail(function(jqXHR, textStatus, errorThrown) {
+  	if (console && console.log) {
+  		console.log("La sol·licitud ha fallat: " + textStatus);
+  	}
+  });
 } //fi_function
 
 

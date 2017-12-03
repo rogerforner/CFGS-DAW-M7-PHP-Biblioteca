@@ -246,7 +246,7 @@ $conexion->close();
     <script src="Starter%20Template%20for%20Bootstrap_files/bootstrap.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="Starter%20Template%20for%20Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
-    <script>
+    <script type="text/javascript">
     $(document).ready(function(){
       $("#myInput").on("keyup", function() {
         var value = $(this).val().toLowerCase();
@@ -256,5 +256,5 @@ $conexion->close();
       });
     });
     </script>
-
+    
 </body></html>

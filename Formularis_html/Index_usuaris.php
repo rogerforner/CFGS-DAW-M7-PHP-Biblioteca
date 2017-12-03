@@ -40,7 +40,7 @@ $conexion->close();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Usuaris</a></li>
+            <li><a href="Index_autors.php">Usuaris</a></li>
             <li><a href="index_genere.php">Generes</a></li>
             <li class="active"><a href="#">Usuaris</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -179,7 +179,7 @@ $conexion->close();
 					<section>
 					  <table class="table table-striped table-bordered">
 					    <tr class="success">
-                <th style="text-align:center">check</th>
+                <th style="text-align:center">ID</th>
 								<th style="text-align:center">DNI</th>
 					      <th style="text-align:center">Nom</th>
 					      <th style="text-align:center">Cognom</th>
@@ -195,7 +195,7 @@ $conexion->close();
               <tbody id="myTable">
 					    <?php while ($registreUsuaris = $result->fetch_assoc()): ?>
 					      <tr class="warning">
-                  <td style="text-align:center"><input type="checkbox" name="vehicle" value="'.$registreUsuaris['ID_Usuari'].'"></td>
+                  <td style="text-align:center"><?= $registreUsuaris['ID_Usuari']; ?></td>
                   <td style="text-align:center"><?= $registreUsuaris['DNI']; ?></td>
                   <td style="text-align:center"><?= $registreUsuaris['Nom']; ?></td>
                   <td style="text-align:center"><?= $registreUsuaris['Cognom']; ?></td>
@@ -209,19 +209,16 @@ $conexion->close();
                   <td style="text-align:center">
                     <!-- FORMULARI TRACTAR USUARI
                     ============================= -->
-                    <form id="tractarUsuari">
-                      <input type="hidden" name="id" value="<?= $registreUsuaris['ID_Usuari']; ?>">
-                      <div class="btn-group" role="group" aria-label="...">
-                        <!-- Editar -->
-                        <button onclick="editarUsuari()" title="Editar" class="btn btn-default">
-                          <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </button>
-                        <!-- Eliminar -->
-                        <button onclick="eliminarUsuari()" title="Eliminar" class="btn btn-danger">
-                          <i class="fa fa-trash" aria-hidden="true"></i>
-                        </button>
-                      </div>
-                    </form>
+                    <div class="btn-group" role="group" aria-label="Tractar usuari">
+                      <!-- Editar -->
+                      <button id="<?= $registreUsuaris['ID_Usuari']; ?>" title="Editar" class="btn btn-default editar-usuari">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+                      <!-- Eliminar -->
+                      <button id="<?= $registreUsuaris['ID_Usuari']; ?>" title="Eliminar" class="btn btn-danger eliminar-usuari">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                    </div>
                   </td>
                 </tr>
 					    <?php endwhile; ?>

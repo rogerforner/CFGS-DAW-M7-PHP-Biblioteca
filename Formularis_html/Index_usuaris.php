@@ -52,15 +52,14 @@ $conexion->close();
 		<br/>
 
 		<div class="container">
-			<!-- Button trigger MODAL
-      ================================================== -->
+			<!-- Button trigger MODAL Afegir -->
 			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addusuari">
 			  Afegir Usuari
 			</button>
 			<br/>
 			<br/>
 
-			<!-- MODAL
+			<!-- MODAL Afegir
       ================================================== -->
 			<div class="modal fade" id="addusuari" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog" role="document">
@@ -210,7 +209,7 @@ $conexion->close();
                   <td style="text-align:center">
                     <!-- FORMULARI TRACTAR USUARI
                     ============================= -->
-                    <form>
+                    <form id="tractarUsuari">
                       <input type="hidden" name="id" value="<?= $registreUsuaris['ID_Usuari']; ?>">
                       <div class="btn-group" role="group" aria-label="...">
                         <!-- Eliminar -->
@@ -254,6 +253,6 @@ $conexion->close();
     </script>
 
     <!-- AJAX -->
-    <script src="Usuaris/ajax-afegir.js"></script>
+    <script src="Usuaris/crud.js"></script>
     
 </body></html>

@@ -4,8 +4,9 @@
 * # Constructors
 * # Getters i Setters
 * # Funcions
-* ## introduirdades()
-* ## eliminardades()
+* ## insertUsuari()
+* ## deleteUsuari()
+* ## selectUsuari()
 *******************************************************************************/
 
 class Usuaris {
@@ -103,12 +104,12 @@ class Usuaris {
 	# Funcions
 	----------------------------------------------------------------------------*/
 	/*
-	## introduirdades()
+	## insertUsuari()
 	----------------------------------------------------------------------------*/
-	public function introduirdades() {
+	public function insertUsuari() {
 		include_once('../dades.php');
 
-		$cadena = "INSERT INTO Usuaris(DNI, Nom, Cognom, Adreca, Poblacio, Provincia, Nacionalitat, Adreca_electronica, Telefon, Data_naixement)
+		$query = "INSERT INTO Usuaris(DNI, Nom, Cognom, Adreca, Poblacio, Provincia, Nacionalitat, Adreca_electronica, Telefon, Data_naixement)
 		VALUES(
 			'$this->dni',
 			'$this->nom',
@@ -122,12 +123,12 @@ class Usuaris {
 			'$this->naixement'
 		)";
 
-		$result = $conexion->query($cadena);
+		$result = $conexion->query($query);
 
 		if ($result === TRUE) {
 			echo "OK";
 
-		} else{
+		} else {
 			echo "Error: ".$conexion->error;
 		}
 
@@ -135,19 +136,18 @@ class Usuaris {
 	}
 
 	/*
-	## eliminardades()
+	## deleteUsuari()
 	----------------------------------------------------------------------------*/
-	public function eliminardades() {
+	public function deleteUsuari() {
 		include_once('../dades.php');
 
-		$cadena = "DELETE FROM Usuaris WHERE ID_Usuari = $this->id";
-
-		$result = $conexion->query($cadena);
+		$query = "DELETE FROM Usuaris WHERE ID_Usuari = $this->id";
+		$result = $conexion->query($query);
 
 		if ($result === TRUE){
 			echo "OK";
 
-		} else{
+		} else {
 			echo "Error: ".$conexion->error;
 		}
 
@@ -155,23 +155,28 @@ class Usuaris {
 	}
 
 	/*
-	## obtenirdades()
+	## selectUsuari()
 	----------------------------------------------------------------------------*/
-	public function obtenirdades() {
+	public function selectUsuari() {
 		include_once('../dades.php');
 
-		$cadena = "SELECT FROM Usuaris WHERE ID_Usuari = $this->id";
-
-		$result = $conexion->query($cadena);
+		$query = "SELECT FROM Usuaris WHERE ID_Usuari = $this->id";
+		$result = $conexion->query($query);
 
 		if ($result === TRUE){
 			echo "OK";
 
-		} else{
+		} else {
 			echo "Error: ".$conexion->error;
 		}
 
+		while($row = $result->fetch_row()) {
+  		$rows[] = $row;
+		}
+
 		$conexion->close();
+
+		return $rows;
 	}
 
 }

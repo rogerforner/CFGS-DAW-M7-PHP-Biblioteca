@@ -1,12 +1,12 @@
 <?php
 include_once('Usuaris.php');
-print_r($_POST["id"]);
+// print_r($_POST["id"]);
 
-$usuaris = new usuaris(
+$usuaris = new Usuaris(
   $_POST["id"]
 );
 
-$usuaris->eliminardades();
+$usuaris->deleteUsuari();
 
 header("Location:../Index_usuaris.php");
 ?>

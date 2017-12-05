@@ -1,7 +1,7 @@
 <?php
 include_once('Usuaris.php');
 
-$usuaris = new usuaris(
+$usuaris = new Usuaris(
   $_POST["dni"],
   $_POST["nom"],
   $_POST["cognom"],
@@ -14,7 +14,7 @@ $usuaris = new usuaris(
   $_POST["naixement"]
 );
 
-$usuaris->introduirdades();
+$usuaris->insertUsuari();
 
 header("Location:../Index_usuaris.php");
 ?>

@@ -2,6 +2,7 @@
  *********************************************************************** "ÍNDEX"
  * # Afegir
  * # Eliminar
+ * # Obtenir dades usuari (modal editar)
  * # Editar
  ******************************************************************************/
 
@@ -15,7 +16,7 @@ function afegirUsuari() {
   // AJAX Request
   $.ajax({
   	type: "POST",
-  	url: "Usuaris/altausuaris.php",
+  	url: "Usuaris/insertUsuari.php",
   	data: formData,
   })
   .done(function(data, textStatus, jqXHR) {
@@ -42,7 +43,7 @@ $('.eliminar-usuari').click(function() {
   // AJAX Request
   $.ajax({
   	type: "POST",
-  	url: "Usuaris/eliminarusuaris.php",
+  	url: "Usuaris/deleteUsuari.php",
   	data: { id:userID },
   })
   .done(function(data, textStatus, jqXHR) {
@@ -59,9 +60,9 @@ $('.eliminar-usuari').click(function() {
 
 
 /*
-# Editar
+# Obtenir dades usuari (modal editar)
 ------------------------------------------------------------------------------*/
-$('.editar-usuari').click(function() {
+$('.obtenir-usuari').click(function() {
 	// Ens quedem amb el valor de la id del botó (#).
   var el = this;
   var userID = this.id;
@@ -69,7 +70,7 @@ $('.editar-usuari').click(function() {
   // AJAX Request
   $.ajax({
   	type: "POST",
-  	url: "Usuaris/eliminarusuaris.php",
+  	url: "Usuaris/selectUsuari.php",
   	data: { id:userID },
   })
   .done(function(data, textStatus, jqXHR) {
@@ -83,3 +84,9 @@ $('.editar-usuari').click(function() {
   	}
   });
 }); //fi_function
+
+/*
+# Editar
+------------------------------------------------------------------------------*/
+function editarUsuari() {
+} //fi_function

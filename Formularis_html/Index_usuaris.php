@@ -211,7 +211,7 @@ $conexion->close();
                     ============================= -->
                     <div class="btn-group" role="group" aria-label="Tractar usuari">
                       <!-- Editar -->
-                      <button id="<?= $registreUsuaris['ID_Usuari']; ?>" title="Editar" class="btn btn-default editar-usuari" data-toggle="modal" data-target="#editusuari">
+                      <button id="<?= $registreUsuaris['ID_Usuari']; ?>" title="Editar" class="btn btn-default obtenir-usuari" data-toggle="modal" data-target="#editusuari">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                       </button>
                       <!-- Eliminar -->

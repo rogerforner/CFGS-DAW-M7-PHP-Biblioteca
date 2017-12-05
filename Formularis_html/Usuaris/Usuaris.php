@@ -154,5 +154,25 @@ class Usuaris {
 		$conexion->close();
 	}
 
+	/*
+	## obtenirdades()
+	----------------------------------------------------------------------------*/
+	public function obtenirdades() {
+		include_once('../dades.php');
+
+		$cadena = "SELECT FROM Usuaris WHERE ID_Usuari = $this->id";
+
+		$result = $conexion->query($cadena);
+
+		if ($result === TRUE){
+			echo "OK";
+
+		} else{
+			echo "Error: ".$conexion->error;
+		}
+
+		$conexion->close();
+	}
+
 }
 ?>

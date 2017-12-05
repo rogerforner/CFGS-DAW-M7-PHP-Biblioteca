@@ -211,7 +211,7 @@ $conexion->close();
                     ============================= -->
                     <div class="btn-group" role="group" aria-label="Tractar usuari">
                       <!-- Editar -->
-                      <button id="<?= $registreUsuaris['ID_Usuari']; ?>" title="Editar" class="btn btn-default editar-usuari">
+                      <button id="<?= $registreUsuaris['ID_Usuari']; ?>" title="Editar" class="btn btn-default editar-usuari" data-toggle="modal" data-target="#editusuari">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                       </button>
                       <!-- Eliminar -->
@@ -227,6 +227,116 @@ $conexion->close();
 					</section>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
+
+      <!-- MODAL Editar
+      ================================================== -->
+			<div class="modal fade" id="editusuari" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Editar Usuari</h4>
+			      </div>
+			      <div class="modal-body">
+              <!-- FORMULARI AFEGIR USUARI
+              ============================= -->
+			        <form id="editarUsuari">
+                <!-- DNI -->
+                <div class="form-group">
+                  <label for="usuariDNI">DNI</label>
+                  <input type="number" name="dni" min="10000000" max="90000000" class="form-control" id="usuariDNI" aria-describedby="dniAjuda" required>
+                  <small id="dniAjuda" class="form-text text-muted">El DNI de l'usuari (sense lletra).</small>
+                </div>
+
+                <!-- Nom i Cognom -->
+                <div class="form-row">
+                  <!-- Nom -->
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="usuariNom">Nom</label>
+                      <input type="text" name="nom" class="form-control" id="usuariNom" aria-describedby="nomAjuda" required>
+                      <small id="nomAjuda" class="form-text text-muted">El nom de l'usuari.</small>
+                    </div>
+                  </div>
+                  <!-- Cognom -->
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="usuariCognom">Cognom</label>
+                      <input type="text" name="cognom" class="form-control" id="usuariCognom" aria-describedby="cognomAjuda" required>
+                      <small id="cognomAjuda" class="form-text text-muted">El cognom de l'usuari.</small>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Adreça -->
+                <div class="form-group">
+                  <label for="usuariAdreca">Adreça</label>
+                  <input type="text" name="adreca" class="form-control" id="usuariAdreca" aria-describedby="adrecaAjuda" required>
+                  <small id="adrecaAjuda" class="form-text text-muted">L'adreça de l'usuari.</small>
+                </div>
+
+                <!-- Població, Província i Nacionalitat -->
+                <div class="form-row">
+                  <!-- Població -->
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="usuariPoblacio">Població</label>
+                      <input type="text" name="poblacio" class="form-control" id="usuariPoblacio" aria-describedby="poblacioAjuda" required>
+                      <small id="poblacioAjuda" class="form-text text-muted">La població on resideix l'usuari.</small>
+                    </div>
+                  </div>
+                  <!-- Província -->
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="usuariProvincia">Província</label>
+                      <input type="text" name="provincia" class="form-control" id="usuariProvincia" aria-describedby="provinciaAjuda" required>
+                      <small id="provinciaAjuda" class="form-text text-muted">Província on resideix l'usuari.</small>
+                    </div>
+                  </div>
+                  <!-- Nacionalitat -->
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="usuariNacionalitat">Nacionalitat</label>
+                      <input type="text" name="nacionalitat" class="form-control" id="usuariNacionalitat" aria-describedby="nacionalitatAjuda" required>
+                      <small id="nacionalitatAjuda" class="form-text text-muted">La nacionalitat de l'usuari.</small>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Adreça electrònica -->
+                <div class="form-group">
+                  <label for="usuariEmail">Adreça electrònica</label>
+                  <input type="email" name="email" class="form-control" id="usuariEmail" aria-describedby="emailAjuda" required>
+                  <small id="emailAjuda" class="form-text text-muted">Adreça electrònica de l'usuari.</small>
+                </div>
+
+                <!-- Telèfon -->
+                <div class="form-group">
+                  <label for="usuariTel">Telèfon</label>
+                  <input type="number" name="telefon" min="100000000" max="900000000" class="form-control" id="usuariTel" aria-describedby="telAjuda" required>
+                  <small id="telAjuda" class="form-text text-muted">Telèfon de l'usuari.</small>
+                </div>
+
+                <!-- Data naixement -->
+                <div class="form-group">
+                  <label for="usuariNaixement">Naixement</label>
+                  <input type="date" name="naixement" class="form-control" id="usuariNaixement" aria-describedby="naixementAjuda" required>
+                  <small id="naixementAjuda" class="form-text text-muted">Data de naixement de l'usuari.</small>
+                </div>
+
+                <!-- Editar
+                =============== -->
+                <button onclick="afegirUsuari()" class="btn btn-primary">Editar</button>
+			        </form>
+			      </div>
+
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- End Modal -->
 		</div><!-- /.container -->
 
 
@@ -251,5 +361,5 @@ $conexion->close();
 
     <!-- AJAX -->
     <script src="Usuaris/crud.js"></script>
-    
+
 </body></html>

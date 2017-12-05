@@ -11,7 +11,7 @@
 function afegirUsuari() {
 	// Obtenim el valors de tots els camps del formulari.
 	formData = $("form#afegirUsuari").serialize();
-  
+
   // AJAX Request
   $.ajax({
   	type: "POST",
@@ -34,12 +34,11 @@ function afegirUsuari() {
 /*
 # Eliminar
 ------------------------------------------------------------------------------*/
-// Delete 
 $('.eliminar-usuari').click(function() {
 	// Ens quedem amb el valor de la id del botó (#).
   var el = this;
   var userID = this.id;
-  
+
   // AJAX Request
   $.ajax({
   	type: "POST",

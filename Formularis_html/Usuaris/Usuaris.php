@@ -9,7 +9,6 @@
 *******************************************************************************/
 
 class Usuaris {
-
 	private $id;
 	private $dni;
 	private $nom;
@@ -30,7 +29,7 @@ class Usuaris {
 		$num  = func_num_args();
 		$f    ='__construct'. $num;
 
-		if (method_exists($this, $f)) {   
+		if (method_exists($this, $f)) {
 			call_user_func_array(array($this, $f), $args);
 		}
 	}

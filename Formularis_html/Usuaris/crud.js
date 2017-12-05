@@ -38,7 +38,10 @@ function afegirUsuari() {
 $('.eliminar-usuari').click(function() {
 	// Ens quedem amb el valor de la id del botó (#).
   var el = this;
-  var userID = this.id;
+  var buttonID = this.id;
+	var splitUserID = buttonID.split("-");
+	var userID = splitUserID[1];
+	// alert(userID);
 
   // AJAX Request
   $.ajax({
@@ -64,8 +67,11 @@ $('.eliminar-usuari').click(function() {
 ------------------------------------------------------------------------------*/
 $('.obtenir-usuari').click(function() {
 	// Ens quedem amb el valor de la id del botó (#).
-  var el = this;
-  var userID = this.id;
+	var el = this;
+  var buttonID = this.id;
+	var splitUserID = buttonID.split("-");
+	var userID = splitUserID[1];
+	// alert(userID);
 
   // AJAX Request
   $.ajax({

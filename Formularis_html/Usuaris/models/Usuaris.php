@@ -155,7 +155,23 @@ class Usuaris {
    *
    * @author Roger Forner Fabre
    */
-  public function insertarUsuari() {}
+  public function insertarUsuari() {
+    $db = Connectar::connexio();
+
+    $db->query("INSERT INTO Usuaris(DNI, Nom, Cognom, Adreca, Poblacio, Provincia, Nacionalitat, Adreca_electronica, Telefon, Data_naixement)
+		VALUES(
+			'$this->dni',
+			'$this->nom',
+			'$this->cognom',
+			'$this->adreca',
+			'$this->poblacio',
+			'$this->provincia',
+			'$this->nacionalitat',
+			'$this->email',
+			'$this->telefon',
+			'$this->naixement'
+		)");
+  }
 
   /**
    * ## eliminarUsuari()

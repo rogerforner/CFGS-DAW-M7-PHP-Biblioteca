@@ -16,22 +16,11 @@ require_once("../models/Usuaris.php");
  * @author Roger Forner Fabre
  * @var usuaris Objecte de la classe Usuaris().
  */
-$usuaris = new Usuaris(
-  $_POST['dni'],
-  $_POST['nom'],
-  $_POST['cognom'],
-  $_POST['adreca'],
-  $_POST['poblacio'],
-  $_POST['provincia'],
-  $_POST['nacionalitat'],
-  $_POST['email'],
-  $_POST['telefon'],
-  $_POST['naixement']
-);
-$usuaris->insertarUsuari();
+$usuaris = new Usuaris($_POST['id']);
+$usuaris->eliminarUsuari();
 
 /**
- * Un cop inserit l'usuari, es fa una redirecció a l'index.php.
+ * Un cop eliminat l'usuari, es fa una redirecció a l'index.php.
  *
  * @author Roger Forner Fabre
  */

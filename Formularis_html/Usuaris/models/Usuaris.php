@@ -175,10 +175,14 @@ class Usuaris {
 
   /**
    * ## eliminarUsuari()
-   * Mitjançant aquesta funció s'inserta un usuari a la base de dades.
+   * Mitjançant aquesta funció s'elimina un usuari de la base de dades.
    *
    * @author Roger Forner Fabre
    */
-  public function eliminarUsuari() {}
+  public function eliminarUsuari() {
+    $db = Connectar::connexio();
+
+    $db->query("DELETE FROM Usuaris WHERE ID_Usuari = $this->id");
+  }
 }
 ?>

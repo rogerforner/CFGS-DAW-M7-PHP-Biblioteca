@@ -59,25 +59,23 @@ $dades   = $usuaris->llistarUsuaris();
         <td width="100%">
           <div class="btn-group" role="group" aria-label="...">
             <!-- Editar -->
-            <button type="button" class="btn btn-primary" title="Editar" data-toggle="modal" data-target="#editarUsuariModal">
+            <button type="button" class="btn btn-primary" title="Editar" data-toggle="modal" data-target="#editarUsuari<?= $dada["ID_Usuari"]; ?>Modal">
               <i class="fa fa-pencil" aria-hidden="true"></i>
             </button>
             <!-- Eliminar -->
-            <button type="button" class="btn btn-danger" title="Eliminar" data-toggle="modal" data-target="#eliminarUsuariModal">
+            <button type="button" class="btn btn-danger" title="Eliminar" data-toggle="modal" data-target="#eliminarUsuari<?= $dada["ID_Usuari"]; ?>Modal">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </div>
-          <!-- Accions Editar-Eliminar -->
-          <!-- Editar -->
-          <form class="" action="index.html" method="post">
-            <?php include_once("modals/editar.php"); ?>
-          </form>
-          <!-- Eliminar -->
-          <form class="" action="index.html" method="post">
-            <?php include_once("modals/eliminar.php"); ?>
-          </form>
         </td>
       </tr>
     <?php endforeach; ?>
   </table>
+  <!-- Accions Editar-Eliminar MODALS -->
+  <!-- Editar -->
+  <form action="#" method="post">
+    <?php include_once("modals/editar.php"); ?>
+  </form>
+  <!-- Eliminar -->
+  <?php include_once("modals/eliminar.php"); ?>
 </div>

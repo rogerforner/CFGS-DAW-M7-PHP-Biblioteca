@@ -5,7 +5,7 @@
  *
  * @author Roger Forner Fabre
  */
-require_once("models/Usuaris.php");
+require_once("../models/Usuaris.php");
 
 /**
  * Es crea un objecte $usuaris, el qual es construeix partint de la Classe Usuaris(),
@@ -13,22 +13,22 @@ require_once("models/Usuaris.php");
  * poden ser paràmetres (determinats en el constructor) o mètodes (accions).
  *
  * Tot seguit es crea una variable $dades en la que es guardarà el valor retornat
- * pel mètode getUsuaris() de la classe Usuaris().
+ * pel mètode llistarUsuaris() de la classe Usuaris().
  *
- * El mètode getUsuaris() retorna tots els usuaris de la base de dades amb les
- * seves dades corresponents.
+ * El mètode llistarUsuaris() retorna tots els usuaris de la base de dades amb
+ * les seves dades corresponents.
  *
  * @author Roger Forner Fabre
  * @var usuaris Objecte de la classe Usuaris().
- * @var dades Conté un Array amb les dades dels usuaris,
+ * @var dades Conté un Array amb les dades dels usuaris.
  */
 $usuaris = new Usuaris();
-$dades = $usuaris->getUsuaris();
+$dades   = $usuaris->llistarUsuaris();
 
 /**
  * Es crida a la vista incloent el fitxer usuaris.php i no pas fent una redirecció.
  * Això és així per poder passar les variables a la vista.
- * 
+ *
  * @author Roger Forner Fabre
  */
 require_once("views/usuaris.php");

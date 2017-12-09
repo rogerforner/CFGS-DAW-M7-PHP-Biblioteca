@@ -10,7 +10,7 @@
         </h4>
       </div><!-- /.modal-header -->
       <!-- Body -->
-      <form id="afegirUsuariForm" class="" action="index.html" method="post">
+      <form id="afegirUsuariForm" action="controllers/insertar.php" method="post">
         <div class="modal-body">
           <?php include_once("afegir-formulari.php"); ?>
         </div><!-- /.modal-body -->

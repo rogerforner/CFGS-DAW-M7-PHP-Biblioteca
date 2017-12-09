@@ -1,20 +1,32 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-/**
- * Connexió a la base de dades.
- *
- * @author Roger Forner Fabre
- */
-require_once("models/Connectar.php");
+<?php include_once("views/head.php"); ?>
+<?php include_once("views/navbar.php"); ?>
 
-/**
- * Controlador.
- * Es crida el controlador usuaris-index.php. Ens serveix per mostrar la pàgina
- * principal en la que hi haurà la llista de tots els usuaris creats, així com
- * també els botons d'afegir, edició i eliminació.
- *
- * @author Roger Forner Fabre
- */
-require_once("controllers/index.php");
-?>
+<div class="container">
+  <!-- Afegir -->
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#afegirUsuariModal">
+			  <i class="fa fa-plus" aria-hidden="true"></i> Afegir Usuari
+			</button>
+    </div><!-- /.col -->
+    <div class="col-md-12">
+      <?php include_once("views/modals/afegir.php"); ?>
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+
+  <!-- Buscar usuaris -->
+  <div class="row">
+    <div class="col-md-12">
+      <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+
+  <!-- Llista d'usuaris -->
+  <div class="row">
+    <div class="col-md-12">
+      <?php include_once("views/llistat-usuaris.php"); ?>
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+<?php include_once("views/footer.php"); ?>

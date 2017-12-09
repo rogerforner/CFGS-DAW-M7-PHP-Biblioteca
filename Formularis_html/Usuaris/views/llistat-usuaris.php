@@ -1,3 +1,32 @@
+<?php // Controlador usuaris-index.php
+/**
+ * Model.
+ * Es crida als models Connectar i Usuaris per poder treballar amb aquests.
+ *
+ * @author Roger Forner Fabre
+ */
+require_once("models/Connectar.php");
+require_once("models/Usuaris.php");
+
+/**
+ * Es crea un objecte $usuaris, el qual es construeix partint de la Classe Usuaris(),
+ * per poder treballar amb els elements que componguin aquesta classe. Els elements
+ * poden ser paràmetres (determinats en el constructor) o mètodes (accions).
+ *
+ * Tot seguit es crea una variable $dades en la que es guardarà el valor retornat
+ * pel mètode llistarUsuaris() de la classe Usuaris().
+ *
+ * El mètode llistarUsuaris() retorna tots els usuaris de la base de dades amb
+ * les seves dades corresponents.
+ *
+ * @author Roger Forner Fabre
+ * @var usuaris Objecte de la classe Usuaris().
+ * @var dades Conté un Array amb les dades dels usuaris.
+ */
+$usuaris = new Usuaris();
+$dades   = $usuaris->llistarUsuaris();
+?>
+
 <div class="table-responsive">
   <table id="myTable" class="table table-condensed table-hover">
     <tr>

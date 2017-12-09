@@ -1,7 +1,6 @@
 <?php // model Usuaris.php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-require_once("Connectar.php");
 /*******************************************************************************
  *********************************************************************** "Índex"
  * # Constructors

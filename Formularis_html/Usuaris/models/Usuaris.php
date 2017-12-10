@@ -75,6 +75,20 @@ class Usuaris {
 		$this->naixement 		= $naixement;
 	}
 
+  public function __construct11($id, $dni, $nom, $cognom, $adreca, $poblacio, $provincia, $nacionalitat, $email, $telefon, $naixement) {
+    $this->id           = $id;
+		$this->dni          = $dni;
+		$this->nom          = $nom;
+		$this->cognom       = $cognom;
+		$this->adreca       = $adreca;
+		$this->poblacio     = $poblacio;
+		$this->provincia    = $provincia;
+		$this->nacionalitat = $nacionalitat;
+		$this->email        = $email;
+		$this->telefon      = $telefon;
+		$this->naixement    = $naixement;
+	}
+
 
   /*
   # Getters i Setters
@@ -87,41 +101,81 @@ class Usuaris {
 		return $this->dni;
 	}
 
+  public function setDni($dni) {
+    $this->dni = $dni;
+  }
+
 	public function getNom() {
 		return $this->nom;
 	}
+
+  public function setNom($nom) {
+    $this->nom = $nom;
+  }
 
 	public function getCognom() {
 		return $this->cognom;
 	}
 
+  public function setCognom($cognom) {
+    $this->cognom = $cognom;
+  }
+
 	public function getAdreca() {
 		return $this->adreca;
 	}
+
+  public function setAdreca($adreca) {
+    $this->adreca = $adreca;
+  }
 
 	public function getPoblacio() {
 		return $this->poblacio;
 	}
 
+  public function setPoblacio($poblacio) {
+    $this->poblacio = $poblacio;
+  }
+
 	public function getProvincia() {
 		return $this->provincia;
 	}
+
+  public function setProvincia($provincia) {
+    $this->provincia = $provincia;
+  }
 
 	public function getNacionalitat() {
 		return $this->nacionalitat;
 	}
 
+  public function setNacionalitat($nacionalitat) {
+    $this->nacionalitat = $nacionalitat;
+  }
+
 	public function getEmail() {
 		return $this->email;
 	}
+
+  public function setEmail($email) {
+    $this->email = $email;
+  }
 
 	public function getTelefon() {
 		return $this->telefon;
 	}
 
+  public function setTelefon($telefon) {
+    $this->telefon = $telefon;
+  }
+
 	public function getNaixement() {
 		return $this->naixement;
 	}
+
+  public function setNaixement($naixement) {
+    $this->naixement = $naixement;
+  }
 
 
   /*
@@ -183,6 +237,29 @@ class Usuaris {
     $db = Connectar::connexio();
 
     $db->query("DELETE FROM Usuaris WHERE ID_Usuari = $this->id");
+  }
+
+  /**
+   * ## editarUsuari()
+   * Mitjançant aquesta funció s'elimina un usuari de la base de dades.
+   *
+   * @author Roger Forner Fabre
+   */
+  public function editarUsuari() {
+    $db = Connectar::connexio();
+
+    $db->query("UPDATE Usuaris
+    SET DNI = '$this->dni',
+    Nom = '$this->nom',
+    Cognom = '$this->cognom',
+    Adreca = '$this->adreca',
+    Poblacio = '$this->poblacio',
+    Provincia = '$this->provincia',
+    Nacionalitat = '$this->nacionalitat',
+    Adreca_electronica = '$this->email',
+    Telefon = '$this->telefon',
+    Data_naixement = '$this->naixement'
+    WHERE ID_Usuari = $this->id");
   }
 }
 ?>

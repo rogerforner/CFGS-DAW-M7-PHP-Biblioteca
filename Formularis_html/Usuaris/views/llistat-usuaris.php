@@ -73,9 +73,7 @@ $dades   = $usuaris->llistarUsuaris();
   </table>
   <!-- Accions Editar-Eliminar MODALS -->
   <!-- Editar -->
-  <form action="#" method="post">
-    <?php include_once("modals/editar.php"); ?>
-  </form>
+  <?php include_once("modals/editar.php"); ?>
   <!-- Eliminar -->
   <?php include_once("modals/eliminar.php"); ?>
 </div>

@@ -38,7 +38,7 @@ $conexion->close();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li ><a href="Crear_autors.php">Autors</a></li>
+            <li ><a href="Index_autors.php">Autors</a></li>
             <li class="active"><a href="#">Generes</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -96,33 +96,44 @@ $conexion->close();
 			  </div>
 			</div>
 			<!-- End Modal -->
+
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <br/>
+
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-12">
 					<section>
 					  <table class="table table-striped table-bordered">
 					    <tr class="success">
 								<th style="text-align:center">check</th>
 					      <th style="text-align:center">Genere</th>
 					      <th style="text-align:center">Cognom</th>
-					      
+                <th style="text-align:center" class="col-md-3"></th>
 					    </tr>
+                <tbody id="myTable">
 					    <?php
 					    while ($registregenere=$result->fetch_assoc()) {
 					      echo '<tr class="warning">
 						    <td style="text-align:center">
 						    <input type="checkbox" name="vehicle" value="'.$registregenere['ID_Genere'].'"></td>
-					            <td style="text-align:center">'.$registregenere['Nom'].'</td>
-					            <td style="text-align:center">'.$registregenere['Descripcio'].'</td>
+					      <td style="text-align:center">'.$registregenere['Nom'].'</td>
+					      <td style="text-align:center">'.$registregenere['Descripcio'].'</td>
 						    <td style="text-align:center">
+                  <div class="col-md-3">
 		         			    <form action="Generes/eliminargenere.php" method="post">
-
-				<button type="submit" name="id" class="btn btn-danger" value="'.$registregenere['ID_Genere'].'">eliminar</button>
-
-	  					</form>
-											</td>
-					            </tr >';
+				                  <button type="submit" name="id" class="btn btn-danger" value="'.$registregenere['ID_Genere'].'">eliminar</button>
+	  					        </form>
+                  </div>
+                  <div class="col-md-5">
+                    <form action="Generes/editargenere.php" method="post">
+                      <button type="submit" name="id" class="btn btn-primary" value="'.$registregenere['ID_Genere'].'">editar</button>
+                    </form>
+                  </div>
+                </td>
+					      </tr >';
 					    }
 					    ?>
+            </tbody>
 					  </table>
 					</section>
 
@@ -140,6 +151,16 @@ $conexion->close();
     <script src="Starter%20Template%20for%20Bootstrap_files/bootstrap.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="Starter%20Template%20for%20Bootstrap_files/ie10-viewport-bug-workaround.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
 
 
 </body></html>

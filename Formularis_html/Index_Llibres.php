@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
 include_once('../dades.php');
-include_once('Autors/modals.php');
+include_once('Llibres/Modals.php');
 
-$cadena= "select * from Autors";
+$cadena= "select * from Llibres";
 $result = $conexion->query($cadena);
 $conexion->close();
 
@@ -55,57 +55,7 @@ $conexion->close();
 			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addautor">
 			  Crear Autor
 			</button>
-			<br/>
-			<br/>
-      <!-- Buscador de la taula -->
-      <input class="form-control" id="myInput" type="text" placeholder="Search..">
-      <br/>
-			<div class="row">
-				<div class="col-md-12">
-					<section>
-            <!-- Taula per mostra el contingut dels autors -->
-					  <table class="table table-striped table-bordered">
-					    <tr class="success">
-								<th style="text-align:center">check</th>
-					      <th style="text-align:center">Nom</th>
-					      <th style="text-align:center">Cognom</th>
-					      <th style="text-align:center">Nacionalitat</th>
-                <th style="text-align:center" class="col-md-3"></th>
-					    </tr>
-              <tbody id="myTable">
-                <img src="" alt="">
-					    <?php
-              $dato= array();
-					    while ($registroautors=$result->fetch_assoc()) {
-                $id=$registroautors['ID_Autor'];
-                $nom=$registroautors['Nom'];
-                $cog=$registroautors['Cognom'];
-                $na=$registroautors['Nacionalitat'];
-                $dato = array($id,$nom,$cog,$na);
-                $valor=$dato[0]."*".$dato[1]."*".$dato[2]."*".$dato[3];
-					      echo '<tr class="warning">
-											<td style="text-align:center"><input type="checkbox" name="vehicle" value="'.$registroautors['ID_Autor'].'"></td>
-					            <td style="text-align:center">'.$registroautors['Nom'].'</td>
-					            <td style="text-align:center">'.$registroautors['Cognom'].'</td>
-					            <td style="text-align:center">'.$registroautors['Nacionalitat'].'</td>
-											<td>
-                        <div class="col-md-4" type="text-align:left">
-  											 	<form action="Autors/eliminarautors.php" method="post">
-  													<button type="submit" name="id" class="btn btn-danger" value="'.$registroautors['ID_Autor'].'"><img src="Autors/img/delete.png" style=height:35px  alt="" ></button>
-  												</form>
-                        </div>
-                        <div class="col-md-5">
-  													<button type="submit" onclick=\'mostrar("'.$valor.'")\'  name="id_autor" class="btn btn-danger" data-toggle="modal" data-target="#editarautor" value="'.$registroautors['ID_Autor'].'"><img src="Autors/img/edit.png" style=height:35px  alt="" ></button>
-                        </div>
-											</td>
-					            </tr>';
-					    }
-					    ?>
-              </tbod>
-					  </table>
-					</section>
-				</div>
-			</div>
+
 		</div>
 
 
@@ -131,31 +81,27 @@ $conexion->close();
 </html>
 
 <script language= JavaScript type=text/JavaScript>
-function mostrar(valor,total1){
-    // alert(total1);
-  var d=valor.split("*");
-
-  $("#aid").val(d[0]);
-  $("#anom").val(d[1]);
-  $("#acognom").val(d[2]);
-  $("#anacionalitat").val(d[3]);
-}
 
 $(function a() {
   $('#enviarautor').on('click', function(e){
     e.preventDefault();
 
-    var Nom = $('#nomAutor').val();
-    var Cognom = $('#cognomAutor').val();
-    var Nacionalitat = $('#nacionalitatAutor').val();
-    if(Nom=="" || Cognom=="" || Nacionalitat==""){
+    var titol = $('#ltitol').val();
+    var nedicio = $('#lnedicio').val();
+    var lloc_publicacio = $('#llloc_publicacio').val();
+    var editorial = $('#leditorial').val();
+    var any_edicio = $('#lany_edicio').val();
+    var isbn = $('#lISBN').val();
+    var quantitat_exemplars = $('#lquantitat_exemplars').val();
+    if(titol=="" || nedicio=="" || lloc_publicacio==""|| any_edicio==""|| isbn==""|| quantitat_exemplars==""){
       $('#mensajes').html('Completa els camps');
 
     }else{
     $.ajax({
+
       type: "POST",
-      url: "Autors/altaautors.php",
-      data: ('nom='+Nom+'&cognom='+Cognom+'&nacionalitat='+Nacionalitat),
+      url: "Llibres/AltaLlibres.php",
+      data: ('titol='+titol+'&nedicio='+nedicio+'&lloc_publicacio='+lloc_publicacio+'&editorial='+editorial+'&any_edicio='+any_edicio+'&isbn='+isbn+'&quantitat_exemplars='+quantitat_exemplars),
       success: function(resposta){
         alert(resposta);
         if(resposta==1){

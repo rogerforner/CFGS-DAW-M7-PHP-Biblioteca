@@ -162,7 +162,7 @@ $(function a() {
           $('#mensajes').html('Autor registrat correctament');
 
           // document.location.href='./Index_autors.php';
-
+ 
 
         }else{
           $('#mensajes').html('El Autor ja existeix');

@@ -1,6 +1,6 @@
 <?php
 
-class Class_llibres{
+class Llibres{
 
 public $id;
 public $titol;
@@ -21,7 +21,7 @@ public $Quantitat_exemplars;
        call_user_func_array(array($this,$f),$args);
      }
    }
-   public function __construct1()
+   public function __construct1($id)
    {
      $this->id=$id;
    }
@@ -42,6 +42,18 @@ public $Quantitat_exemplars;
 		}
 	 public function __construct7($titol,$nedicio,$lloc_publicacio,$editorial,$any_edicio,$isbn,$quantitat_exemplars)
    {
+
+ 			$this->titol=$titol;
+ 		  $this->nedicio=$nedicio;
+			$this->Lloc_publicacio=$lloc_publicacio;
+			$this->editorial=$editorial;
+			$this->any_edicio=$any_edicio;
+			$this->ISBN=$isbn;
+			$this->Quantitat_exemplars=$quantitat_exemplars;
+   }
+	 public function __construct8($id,$titol,$nedicio,$lloc_publicacio,$editorial,$any_edicio,$isbn,$quantitat_exemplars)
+   {
+		 	$this->id=$id;
  			$this->titol=$titol;
  		  $this->nedicio=$nedicio;
 			$this->Lloc_publicacio=$lloc_publicacio;
@@ -91,46 +103,47 @@ if($fila==0){
 
  $conexion->close();
 }
-//
-// public function eliminardades(){
-// include_once('../dades.php');
-// $cadena= "delete from biblioteca.Autors where ID_Autor=$this->id";
-// $result = $conexion->query($cadena);
-// if ($result===TRUE){
-// 	echo"very gooood";
-// }else{
-// 	echo"very vad las cahat";
-// }
-//
-// $conexion->close();
-// }
-//
-//
-// public function mostrardadesid(){
-// include_once('../dades.php');
-// $cadena= "select * from Autors where ID_Autor=$this->id";
-// $result = $conexion->query($cadena);
-// if ($result){
-// 	echo"very gooood";
-// }else{
-// 	echo"very vad las cahat";
-// }
-// return $result;
-// $conexion->close();
-// }
-//
-// public function Actualitzardades($ID_Autor,$Nom,$Cognom,$Nacionalitat){
-// include_once('../dades.php');
-// $cadena= "update Autors set Nom='$Nom',Cognom='$Cognom',Nacionalitat='$Nacionalitat' where ID_Autor='$ID_Autor'";
-// $result = $conexion->query($cadena);
-// if ($result){
-// 	echo"very gooood";
-// }else{
-// 	echo"very vad las cahat";
-// }
-// return $result;
-// $conexion->close();
-// }
+
+public function eliminardades(){
+include_once('../dades.php');
+$cadena= "delete from biblioteca.Llibres where ID_Llibres=$this->id";
+$result = $conexion->query($cadena);
+if ($result===TRUE){
+	echo"very gooood";
+}else{
+	echo"very vad las cahat";
+}
+
+$conexion->close();
+}
+
+public function Actualitzardades(){
+
+include_once('../dades.php');
+
+$cadena="UPDATE biblioteca.Llibres
+SET
+Titol = '$this->titol',
+Numero_edicio = '$this->nedicio',
+
+Lloc_publicacio = '$this->Lloc_publicacio',
+Editorial = '$this->editorial',
+Any_edicio = '$this->any_edicio',
+ISBN = '$this->ISBN',
+Quantitat_exemplars = '$this->Quantitat_exemplars'
+WHERE ID_Llibres = $this->id";
+
+// $cadena= "update Llibres set Titol='$this->titol',Numero_edicio='$this->nedicio',Lloc_publicacio='$this->Lloc_publicacio',Editorial='$this->editorial',Any_edicio='$this->any_edicio',ISBN='$this->ISBN',Quantitat_exemplars='$this->Quantitat_exemplars' where ID_Llibres='$this->$id'";
+// $cadena= "delete from biblioteca.Llibres where ID_Llibres=$this->id";
+$result = $conexion->query($cadena);
+if ($result){
+	echo"very gooood";
+}else{
+	echo"very vad las cahat";
+}
+return $result;
+$conexion->close();
+}
 }
 
 ?>

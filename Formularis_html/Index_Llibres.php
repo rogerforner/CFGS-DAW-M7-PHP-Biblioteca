@@ -53,10 +53,74 @@ $conexion->close();
 		<div class="container">
 			<!-- Boto per crear autor -->
 			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addautor">
-			  Crear Autor
+			  Crear Llibre
 			</button>
+      <br/>
+			<br/>
+      <!-- Buscador de la taula -->
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <br/>
+			<div class="row">
+				<div class="col-md-12">
+					<section>
+            <!-- Taula per mostra el contingut dels autors -->
+					  <table class="table table-striped table-bordered">
+					    <tr class="success">
+								<th style="text-align:center">check</th>
+					      <th style="text-align:center">Titol</th>
+					      <th style="text-align:center">Nº edicio</th>
+					      <th style="text-align:center">Lloc publicacio</th>
+                <th style="text-align:center">Editorial</th>
+					      <th style="text-align:center">Any edicio</th>
+					      <th style="text-align:center">ISBN</th>
+                <th style="text-align:center">Nº exemplars</th>
+                <th style="text-align:center" class="col-md-3"></th>
+					    </tr>
+              <tbody id="myTable">
+                <img src="" alt="">
+					    <?php
+              $dato= array();
+					    while ($registroautors=$result->fetch_assoc()) {
+                $id=$registroautors['ID_Llibres'];
+                $titol=$registroautors['Titol'];
+                $n_edicio=$registroautors['Numero_edicio'];
+                $l_publicacio=$registroautors['Lloc_publicacio'];
+                $editorial=$registroautors['Editorial'];
+                $a_edicio=$registroautors['Any_edicio'];
+                $isbn=$registroautors['ISBN'];
+                $n_exemplars=$registroautors['Quantitat_exemplars'];
+                $dato = array($id,$titol,$n_edicio,$l_publicacio,$editorial,$a_edicio,$isbn,$n_exemplars);
+                $valor=$dato[0]."*".$dato[1]."*".$dato[2]."*".$dato[3]."*".$dato[4]."*".$dato[5]."*".$dato[6]."*".$dato[7];
+					      echo '<tr class="warning">
+											<td style="text-align:center"><input type="checkbox" name="vehicle" value="'.$registroautors['ID_Llibres'].'"></td>
+					            <td style="text-align:center">'.$registroautors['Titol'].'</td>
+					            <td style="text-align:center">'.$registroautors['Numero_edicio'].'</td>
+					            <td style="text-align:center">'.$registroautors['Lloc_publicacio'].'</td>
+                      <td style="text-align:center">'.$registroautors['Editorial'].'</td>
+                      <td style="text-align:center">'.$registroautors['Any_edicio'].'</td>
+                      <td style="text-align:center">'.$registroautors['ISBN'].'</td>
+                      <td style="text-align:center">'.$registroautors['Quantitat_exemplars'].'</td>
+											<td>
+                        <div class="col-md-4" type="text-align:left">
+  											 	<form action="Llibres/EliminarLlibres.php" method="post">
+  													<button type="submit" name="id" class="btn btn-danger" value="'.$registroautors['ID_Llibres'].'"><img src="Autors/img/delete.png" style=height:35px  alt="" ></button>
+  												</form>
+                        </div>
+                        <div class="col-md-5">
+  													<button type="submit" onclick=\'mostrar("'.$valor.'")\'  name="ID_Llibres" class="btn btn-danger" data-toggle="modal" data-target="#editarautor" value="'.$registroautors['ID_Llibres'].'"><img src="Autors/img/edit.png" style=height:35px  alt="" ></button>
+                        </div>
+											</td>
+					            </tr>';
+					    }
+					    ?>
+              </tbod>
+					  </table>
+					</section>
+				</div>
+			</div>
 
 		</div>
+
 
 
     <!-- Bootstrap core JavaScript
@@ -81,6 +145,18 @@ $conexion->close();
 </html>
 
 <script language= JavaScript type=text/JavaScript>
+function mostrar(valor){
+  var d=valor.split("*");
+  $("#edit_id").val(d[0]);
+  $("#edit_titol").val(d[1]);
+  $("#edit_nedicio").val(d[2]);
+  $("#edit_lloc_publicacio").val(d[3]);
+  $("#edit_editorial").val(d[4]);
+  $("#edit_any_edicio").val(d[5]);
+  $("#edit_ISBN").val(d[6]);
+  $("#edit_quantitat_exemplars").val(d[7]);
+
+}
 
 $(function a() {
   $('#enviarautor').on('click', function(e){
@@ -124,7 +200,7 @@ $(function b(){
     e.preventDefault();
 
       // alert("adeu");
-      document.location.href='./Index_autors.php';
+      document.location.href='./Index_Llibres.php';
 
   })
 })

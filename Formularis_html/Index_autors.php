@@ -17,6 +17,7 @@ $conexion->close();
     <meta name="author" content="">
     <link rel="icon" href="https://getbootstrap.com/docs/3.3/favicon.ico">
     <title>Starter Template for Bootstrap</title>
+
     <!-- Bootstrap core CSS -->
     <link href="Starter%20Template%20for%20Bootstrap_files/bootstrap.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -131,7 +132,7 @@ $conexion->close();
 </html>
 
 <script language= JavaScript type=text/JavaScript>
-function mostrar(valor,total1){
+function mostrar(valor){
     // alert(total1);
   var d=valor.split("*");
 
@@ -162,7 +163,7 @@ $(function a() {
           $('#mensajes').html('Autor registrat correctament');
 
           // document.location.href='./Index_autors.php';
- 
+
 
         }else{
           $('#mensajes').html('El Autor ja existeix');

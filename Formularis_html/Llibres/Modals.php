@@ -87,43 +87,70 @@
         <h4 class="modal-title" id="myModalLabel">Update</h4>
       </div>
       <div class="modal-body">
-        <form action="Autors/Actualitzardades.php" method="post">
-          <div class="form-row">
-            <div class="col">
-              <div class="form-group">
-                <label for="autorNom">ID</label>
-                <input type="text" name="ID_Autor" class="form-control" id="aid" aria-describedby="nomAjuda" required>
-                <small class="form-text text-muted">El nom de l'autor.</small>
+          <form action="Llibres/ActualitzarLlibres.php" method="post">
+            <div class="form-row">
+              <!-- Nom -->
+              <div class="col">
+                <div class="form-group">
+                  <label for="Llibretitol">ID</label>
+                  <input type="text" name="eid" id="edit_id"class="form-control" aria-describedby="nomAjuda" required>
+                  <small class="form-text text-muted">ID</small>
+                </div>
+              <!-- Nom -->
+              <div class="col">
+                <div class="form-group">
+                  <label for="Llibretitol">Titol</label>
+                  <input type="text" name="etitol" id="edit_titol"class="form-control" aria-describedby="nomAjuda" required>
+                  <small class="form-text text-muted">Titol llibre</small>
+                </div>
+              </div>
+              <!-- Cognom -->
+              <div class="col">
+                <div class="form-group">
+                  <label for="lnedicio">Numero edició</label>
+                  <input type="text" name="enedicio" id="edit_nedicio" class="form-control" aria-describedby="nomAjuda" required>
+                  <small class="form-text text-muted">numero edició</small>
+                </div>
               </div>
             </div>
-            <!-- Nom -->
+            <!-- Nacionalitat -->
+            <div class="form-group">
+              <label for="lpublicacio">Lloc publicació</label>
+              <input type="text" name="elloc_publicacio" id="edit_lloc_publicacio" class="form-control" aria-describedby="nomAjuda" required>
+              <small class="form-text text-muted">Lloc publicació</small>
+            </div>
             <div class="col">
               <div class="form-group">
-                <label for="autorNom">Nom</label>
-                <input type="text" name="Nom" class="form-control" id="anom" aria-describedby="nomAjuda" required>
-                <small class="form-text text-muted">El nom de l'autor.</small>
+                <label for="leditorial">editorial</label>
+                <input type="text" name="eeditorial" id="edit_editorial"class="form-control" aria-describedby="nomAjuda" required>
+                <small class="form-text text-muted">Editorial</small>
               </div>
             </div>
             <!-- Cognom -->
             <div class="col">
               <div class="form-group">
-                <label for="autorCognom">Cognom</label>
-                <input type="text" id="acognom" name="Cognom" class="form-control" aria-describedby="cognomAjuda" required>
-                <small class="form-text text-muted">El cognom de l'autor.</small>
+                <label for="lany_edicio">any_edicio</label>
+                <input type="text" name="eany_edicio" id="edit_any_edicio" class="form-control" aria-describedby="nomAjuda" required>
+                <small class="form-text text-muted">Any edició format xxxx-xx-xx</small>
               </div>
             </div>
-          </div>
-
-          <!-- Nacionalitat -->
-          <div class="form-group">
-            <label for="autorNacionalitat">Nacionalitat</label>
-            <input type="text"  id="anacionalitat" name="Nacionalitat" class="form-control" aria-describedby="nacionalitatAjuda" required>
-            <small class="form-text text-muted">La nacionalitat de l'autor.</small>
-          </div>
-
-          <!-- Submit -->
-          <button type="submit" class="btn btn-primary" value="$registroautors['ID_Autor']">Afegir</button>
-        </form>
+            <div class="form-group">
+              <div class="form-group">
+                <label for="lISBN">ISBN</label>
+                <input type="text" name="eisbn" id="edit_ISBN" class="form-control" aria-describedby="nomAjuda" required>
+                <small class="form-text text-muted">ISBN</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-group">
+                <label for="lquantitat_exemplars">quantitat_exemplars</label>
+                <input type="text" name="equantitat_exemplars" id="edit_quantitat_exemplars" class="form-control" aria-describedby="nomAjuda" required>
+                <small class="form-text text-muted">Quantitat exemplars</small>
+              </div>
+            </div>
+            <button type="submit" id="enviarautor" class="btn btn-primary">Afegir</button>
+            <span id="mensajes"></span>
+          </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -132,4 +159,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

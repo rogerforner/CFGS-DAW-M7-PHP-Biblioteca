@@ -50,19 +50,10 @@ public function getnacionalitat(){
 
 public function introduirdades(){
  include_once('../dades.php');
-// // $cadena1= $conexion->query("select * from Autors where Nom=$this->nom");
-//
+
 $cadena1="select * from Autors where Nom='$this->nom' and Cognom='$this->cognom'";
 $result=$conexion->query($cadena1);
-
- //$fila= $result->num_rows;
- $fila=mysqli_num_rows($result);
-// $contador=0;
-// while ($registroautors=$resultat1->fetch_assoc()) {
-// 	$contador=$contador+1;
-// }
-// $count=$fila[0];
-  // echo $fila;
+$fila=mysqli_num_rows($result);
 if($fila==0){
  	$cadena= "insert into Autors(nom,cognom,nacionalitat)Values('$this->nom','$this->cognom','$this->nacionalitat')";
  	$result = $conexion->query($cadena);
@@ -71,15 +62,7 @@ if($fila==0){
 	echo 2;
 }
 
-// $cadena= "insert into Autors(nom,cognom,nacionalitat)Values('$this->nom','$this->cognom','$this->nacionalitat')";
-// $result = $conexion->query($cadena);
-// if ($result===TRUE){
-// 	return 1;
-// 	// echo"very gooood";
-// }else{
-// 	return 2;
-// 	// echo"very vad las cahat";
-// }
+
 
  $conexion->close();
 }

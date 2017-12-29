@@ -24,43 +24,33 @@ require_once("models/Prestecs.php");
  * @var dades Conté un Array amb les dades dels prestecs.
  */
 $prestecs = new Prestecs();
-$dades   = $prestecs->llistarPrestecs();
+$dades    = $prestecs->llistarPrestecs();
 ?>
 
 <div class="table-responsive">
   <table id="myTable" class="table table-condensed table-hover">
     <tr>
       <th>#</th>
-      <th>DNI</th>
-      <th>Nom</th>
-      <th>Cognom</th>
-      <th>Adreça</th>
-      <th>Població</th>
-      <th>Província</th>
-      <th>Nacionalitat</th>
-      <th>Adreça electrònica</th>
-      <th>Telèfon</th>
-      <th>Data naixement</th>
-      <th width="100%">Acció</th>
+      <th>Préstecs</th>
+      <th>Usuari</th>
+      <th>Exemplar</th>
+      <th>Prestat el</th>
+      <th>A tornar</th>
+      <th>Acció</th>
     </tr>
     <?php foreach ($dades as $dada): ?>
       <tr>
         <td><?= $dada["ID_Prestec"]; ?></td>
-        <td><?= $dada["DNI"]; ?></td>
-        <td><?= $dada["Nom"]; ?></td>
-        <td><?= $dada["Cognom"]; ?></td>
-        <td><?= $dada["Adreca"]; ?></td>
-        <td><?= $dada["Poblacio"]; ?></td>
-        <td><?= $dada["Provincia"]; ?></td>
-        <td><?= $dada["Nacionalitat"]; ?></td>
-        <td><?= $dada["Adreca_electronica"]; ?></td>
-        <td><?= $dada["Telefon"]; ?></td>
-        <td><?= $dada["Data_naixement"]; ?></td>
-        <td width="100%">
+        <td>0 préstecs</td>
+        <td><?= $dada["Usuari"]; ?></td>
+        <td><?= $dada["Exemplar"]; ?></td>
+        <td><?= $dada["Data_sortida"]; ?></td>
+        <td><?= $dada["Data_maxima_devolucio"]; ?></td>
+        <td>
           <div class="btn-group" role="group" aria-label="...">
             <!-- Editar -->
-            <button type="button" class="btn btn-primary" title="Editar" data-toggle="modal" data-target="#editarPrestec<?= $dada["ID_Prestec"]; ?>Modal">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+            <button type="button" class="btn btn-primary" title="Tornat" data-toggle="modal" data-target="#editarPrestec<?= $dada["ID_Prestec"]; ?>Modal">
+              <i class="fa fa-reply" aria-hidden="true"></i>
             </button>
             <!-- Eliminar -->
             <button type="button" class="btn btn-danger" title="Eliminar" data-toggle="modal" data-target="#eliminarPrestec<?= $dada["ID_Prestec"]; ?>Modal">

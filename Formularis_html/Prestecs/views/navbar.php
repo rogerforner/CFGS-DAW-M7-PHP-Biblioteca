@@ -13,6 +13,7 @@
       <ul class="nav navbar-nav">
         <li><a href="#">Autors</a></li>
         <li><a href="#">Generes</a></li>
+        <li><a href="#">Usuaris</a></li>
         <li class="active"><a href="#">Prestecs</a></li>
       </ul>
     </div><!--/.nav-collapse -->

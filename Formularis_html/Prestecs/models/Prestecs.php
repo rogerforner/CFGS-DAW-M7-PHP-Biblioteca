@@ -59,25 +59,11 @@ class Prestecs {
 		$this->id = $id;
 	}
 
-	public function __construct7($dataSortida, $dataMaxDevolucio, $dataRealDevolucio, $numPrestecs, $maxPrestecs, $exemplar, $usuari) {
-		$this->dataSortida       = $dataSortida;
-		$this->dataMaxDevolucio  = $dataMaxDevolucio;
-		$this->dataRealDevolucio = $dataRealDevolucio;
-		$this->numPrestecs       = $numPrestecs;
-		$this->maxPrestecs       = $maxPrestecs;
-		$this->exemplar          = $exemplar;
-		$this->usuari            = $usuari;
-	}
-
-  public function __construct8($id, $dataSortida, $dataMaxDevolucio, $dataRealDevolucio, $numPrestecs, $maxPrestecs, $exemplar, $usuari) {
-    $this->id                = $id;
-    $this->dataSortida       = $dataSortida;
-		$this->dataMaxDevolucio  = $dataMaxDevolucio;
-		$this->dataRealDevolucio = $dataRealDevolucio;
-		$this->numPrestecs       = $numPrestecs;
-		$this->maxPrestecs       = $maxPrestecs;
-		$this->exemplar          = $exemplar;
-		$this->usuari            = $usuari;
+  public function __construct4($dataSortida, $dataMaxDevolucio, $exemplar, $usuari) {
+    $this->dataSortida      = $dataSortida;
+		$this->dataMaxDevolucio = $dataMaxDevolucio;
+		$this->exemplar         = $exemplar;
+		$this->usuari           = $usuari;
 	}
 
 
@@ -132,7 +118,6 @@ class Prestecs {
     return $this->usuari;
   }
 
-
   public function setUsuari($usuari) {
     $this->usuari = $usuari;
   }
@@ -172,13 +157,11 @@ class Prestecs {
   public function insertarPrestec() {
     $db = Connectar::connexio();
 
-    $db->query("INSERT INTO Prestecs(Data_sortida, Data_maxima_devolucio, Data_real_devolucio, Numero_prestecs, Maxim_prestecs, Exemplar, Usuari)
+    // $db->query("INSERT INTO Prestecs(Data_sortida, Data_maxima_devolucio, Data_real_devolucio, Numero_prestecs, Maxim_prestecs, Exemplar, Usuari)
+    $db->query("INSERT INTO Prestecs(Data_sortida, Data_maxima_devolucio, Exemplar, Usuari)
 		VALUES(
 			'$this->dataSortida',
 			'$this->dataMaxDevolucio',
-			'$this->dataRealDevolucio',
-			'$this->numPrestecs',
-			'$this->maxPrestecs',
 			'$this->exemplar',
 			'$this->usuari'
 		)");

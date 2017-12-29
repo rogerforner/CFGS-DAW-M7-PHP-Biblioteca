@@ -17,16 +17,10 @@ require_once("../models/Prestecs.php");
  * @var prestecs Objecte de la classe Prestecs().
  */
 $prestecs = new Prestecs(
-  $_POST['dni'],
-  $_POST['nom'],
-  $_POST['cognom'],
-  $_POST['adreca'],
-  $_POST['poblacio'],
-  $_POST['provincia'],
-  $_POST['nacionalitat'],
-  $_POST['email'],
-  $_POST['telefon'],
-  $_POST['naixement']
+  $_POST['dataSortida'],
+  $_POST['dataMaxDevolucio'],
+  $_POST['usuari'],
+  $_POST['exemplar']
 );
 $prestecs->insertarPrestec();
 

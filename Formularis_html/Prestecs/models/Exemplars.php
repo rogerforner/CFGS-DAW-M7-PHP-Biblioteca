@@ -1,12 +1,15 @@
-<?php // model Exemplars.php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+<?php
+// Mostrar errors.
+// error_reporting(E_ALL);
+// ini_set('display_errors', '1');
+
 /*******************************************************************************
  *********************************************************************** "Índex"
  * # Constructors
  * # Getters i Setters
  * # Funcions
  * ## llistarExemplars()
+ * ## totalExemplars()
  ******************************************************************************/
 class Exemplars {
   private $id;
@@ -49,7 +52,7 @@ class Exemplars {
 		}
 	}
 
-	public function __construct1($id) {
+  public function __construct1($id) {
 		$this->id = $id;
 	}
 
@@ -82,14 +85,59 @@ class Exemplars {
    * dades desitjades.
    *
    * @author Roger Forner Fabre
+   * @var exemplars Array en el que es guardarà el resultat de la consulta (query)
+   * que es dugui a terme a la DB.
+   * @var db Objecte emprat per connectar-nos la DB, fent referència a la classe
+   * Connectar() i, específicament, al seu mètode conneccio().
+   * @var query Consulta a dur a terme a la DB. En aquesta consulta s'uneixen les
+   * taules "Llibres" i "Exemplars" per tal d'obtenir informació d'ambdues.
+   * @var files Variable en la que es guarda un array associatiu "fetch_assoc()",
+   * aquest corresponent a una sola fila de la taula consultada.
+   * @return exemplars La funció retornarà un objecte Array.
    */
   public function llistarExemplars() {
     $exemplars = array();
     $db = Connectar::connexio();
 
-    // $query = $db->query("SELECT * FROM Exemplars;");
     $query = $db->query("SELECT Exemplars.ID_Exemplar, Llibres.Titol FROM Exemplars
       INNER JOIN Llibres ON Exemplars.ID_Llibres = Llibres.ID_Llibres
+    ;");
+
+    while($files = $query->fetch_assoc()) {
+      $exemplars[] = $files;
+    }
+
+    return $exemplars;
+  }
+
+
+  /**
+   * ## totalExemplars()
+   * Mitjançant aquesta funció obtenim el total d'exemplars que té un llibre
+   * en concret. Ens interessa saber aquesta dada per tal de poder determinar
+   * quan n'hi ha suficients com per fer préstecs i quan no.
+   *
+   * En aquesta consulta s'obté:
+   * - Quantitat_exemplars -> Total d'exemplars d'un llibre.
+   *
+   * @author Roger Forner Fabre
+   * @var exemplars Array en el que es guardarà el resultat de la consulta (query)
+   * que es dugui a terme a la DB.
+   * @var db Objecte emprat per connectar-nos la DB, fent referència a la classe
+   * Connectar() i, específicament, al seu mètode conneccio().
+   * @var query Consulta a dur a terme a la DB. En aquesta consulta s'uneixen les
+   * taules "Llibres" i "Exemplars" per tal d'obtenir informació d'ambdues.
+   * @var files Variable en la que es guarda un array associatiu "fetch_assoc()",
+   * aquest corresponent a una sola fila de la taula consultada.
+   * @return exemplars La funció retornarà un objecte Array.
+   */
+  public function totalExemplars($exemplar) {
+    $exemplars = array();
+    $db = Connectar::connexio();
+
+    $query = $db->query("SELECT Llibres.Quantitat_exemplars FROM Exemplars
+      INNER JOIN Llibres ON Exemplars.ID_Llibres = Llibres.ID_Llibres
+      WHERE Exemplars.ID_Exemplar = $exemplar
     ;");
 
     while($files = $query->fetch_assoc()) {

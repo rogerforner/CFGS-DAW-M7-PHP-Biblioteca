@@ -15,6 +15,7 @@
   </div><!-- /.row -->
 
   <!-- Buscar prestecs -->
+  <h2>Préstecs</h2>
   <div class="row">
     <div class="col-md-12">
       <input class="form-control" id="myInput" type="text" placeholder="Buscar...">
@@ -25,6 +26,21 @@
   <div class="row">
     <div class="col-md-12">
       <?php include_once("views/llistat-prestecs.php"); ?>
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+
+  <!-- Buscar prestecs 2 -->
+  <h2>Préstecs tornats</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <input class="form-control" id="myInput2" type="text" placeholder="Buscar préstecs tornats...">
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+
+  <!-- Llista d'prestecs 2 (tornats) -->
+  <div class="row">
+    <div class="col-md-12">
+      <?php include_once("views/llistat-prestecs-tornats.php"); ?>
     </div><!-- /.col -->
   </div><!-- /.row -->
 </div><!-- /.container -->

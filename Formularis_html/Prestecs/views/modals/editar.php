@@ -22,6 +22,8 @@ require_once("models/Prestecs.php");
  * @author Roger Forner Fabre
  * @var prestecs Objecte de la classe Prestecs().
  * @var dades Conté un Array amb les dades dels prestecs.
+ * @var dataMaxDev Conté com a valor la data de màxima devolució. Emprada per
+ * poder mostrar un missatge que avisa si està o no fora del plaç d'entrega.
  */
 $prestecs = new Prestecs();
 $dades   = $prestecs->llistarPrestecs();
@@ -35,18 +37,37 @@ $dades   = $prestecs->llistarPrestecs();
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">
-            <i class="fa fa-pencil" aria-hidden="true"></i> Editar <?= $dada["Nom"]; ?> <?= $dada["Cognom"]; ?>
+            <i class="fa fa-reply" aria-hidden="true"></i> Préstec de <?= $dada["Usuari_nom"]; ?> <?= $dada["Usuari_cognom"]; ?>
           </h4>
         </div><!-- /.modal-header -->
         <!-- Body -->
         <form id="editarPrestecForm" action="controllers/editar.php" method="post">
           <div class="modal-body">
+            <!-- Formulari en el que només passem la ID. -->
             <?php include("editar-formulari.php"); ?>
+
+            <!-- Informació sobre el llibre prestat. -->
+            <ul>
+              <li><strong>Llibre</strong> <em><?= $dada["Llibre_titol"]; ?></em></li>
+              <li><strong>Prestat el</strong> <?= $dada["Data_sortida"]; ?></li>
+              <li><strong>A tornar el</strong> <?= $dada["Data_maxima_devolucio"]; ?></li>
+            </ul>
+
+            <!-- Missatge sobre l'estat del préstec. -->
+            <?php
+            $dataMaxDev = $dada["Data_maxima_devolucio"];
+
+            if ($dataMaxDev > $dataMaxDev): ?>
+              <p class="text-danger">Fora del plaç d'entrega.</p>
+            <?php else: ?>
+              <p class="text-success">Dintre del plaç d'entrega.</p>
+            <?php endif; ?>
+
           </div><!-- /.modal-body -->
           <!-- Footer -->
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
-            <button type="submit" class="btn btn-primary">Actualitzar</button>
+            <button type="submit" class="btn btn-primary">Tornat</button>
           </div><!-- /.modal-footer -->
         </form>
       </div><!-- /.modal-content -->

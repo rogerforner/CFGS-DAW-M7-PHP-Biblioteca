@@ -10,16 +10,8 @@ ini_set('display_errors', '1');
  ******************************************************************************/
 class Usuaris {
   private $id;
-	private $dni;
 	private $nom;
 	private $cognom;
-	private $adreca;
-	private $poblacio;
-	private $provincia;
-	private $nacionalitat;
-	private $email;
-	private $telefon;
-	private $naixement;
 
   /*
   # Constructors
@@ -62,31 +54,15 @@ class Usuaris {
 		$this->id = $id;
 	}
 
-	public function __construct10($dni, $nom, $cognom, $adreca, $poblacio, $provincia, $nacionalitat, $email, $telefon, $naixement) {
+	public function __construct2($nom, $cognom) {
+		$this->nom          = $nom;
+		$this->cognom 			= $cognom;
+	}
+
+  public function __construct3($id, $nom, $cognom) {
 		$this->dni          = $dni;
 		$this->nom          = $nom;
 		$this->cognom 			= $cognom;
-		$this->adreca       = $adreca;
-		$this->poblacio     = $poblacio;
-		$this->provincia    = $provincia;
-		$this->nacionalitat = $nacionalitat;
-		$this->email        = $email;
-		$this->telefon      = $telefon;
-		$this->naixement 		= $naixement;
-	}
-
-  public function __construct11($id, $dni, $nom, $cognom, $adreca, $poblacio, $provincia, $nacionalitat, $email, $telefon, $naixement) {
-    $this->id           = $id;
-		$this->dni          = $dni;
-		$this->nom          = $nom;
-		$this->cognom       = $cognom;
-		$this->adreca       = $adreca;
-		$this->poblacio     = $poblacio;
-		$this->provincia    = $provincia;
-		$this->nacionalitat = $nacionalitat;
-		$this->email        = $email;
-		$this->telefon      = $telefon;
-		$this->naixement    = $naixement;
 	}
 
 
@@ -97,85 +73,13 @@ class Usuaris {
 		return $this->id;
 	}
 
-	public function getDni() {
-		return $this->dni;
-	}
-
-  public function setDni($dni) {
-    $this->dni = $dni;
-  }
-
 	public function getNom() {
 		return $this->nom;
 	}
 
-  public function setNom($nom) {
-    $this->nom = $nom;
-  }
-
 	public function getCognom() {
 		return $this->cognom;
 	}
-
-  public function setCognom($cognom) {
-    $this->cognom = $cognom;
-  }
-
-	public function getAdreca() {
-		return $this->adreca;
-	}
-
-  public function setAdreca($adreca) {
-    $this->adreca = $adreca;
-  }
-
-	public function getPoblacio() {
-		return $this->poblacio;
-	}
-
-  public function setPoblacio($poblacio) {
-    $this->poblacio = $poblacio;
-  }
-
-	public function getProvincia() {
-		return $this->provincia;
-	}
-
-  public function setProvincia($provincia) {
-    $this->provincia = $provincia;
-  }
-
-	public function getNacionalitat() {
-		return $this->nacionalitat;
-	}
-
-  public function setNacionalitat($nacionalitat) {
-    $this->nacionalitat = $nacionalitat;
-  }
-
-	public function getEmail() {
-		return $this->email;
-	}
-
-  public function setEmail($email) {
-    $this->email = $email;
-  }
-
-	public function getTelefon() {
-		return $this->telefon;
-	}
-
-  public function setTelefon($telefon) {
-    $this->telefon = $telefon;
-  }
-
-	public function getNaixement() {
-		return $this->naixement;
-	}
-
-  public function setNaixement($naixement) {
-    $this->naixement = $naixement;
-  }
 
 
   /*
@@ -189,10 +93,18 @@ class Usuaris {
    * dades desitjades.
    *
    * @author Roger Forner Fabre
+   * @var usuaris Array en el que es guardarà el resultat de la consulta (query)
+   * que es dugui a terme a la DB.
+   * @var db Objecte emprat per connectar-nos la DB, fent referència a la classe
+   * Connectar() i, específicament, al seu mètode conneccio().
+   * @var query Consulta a dur a terme a la DB.
+   * @var files Variable en la que es guarda un array associatiu "fetch_assoc()",
+   * aquest corresponent a una sola fila de la taula consultada.
+   * @return usuaris La funció retornarà un objecte Array.
    */
   public function llistarUsuaris() {
     $usuaris = array();
-    $db = Connectar::connexio();
+    $db      = Connectar::connexio();
 
     $query = $db->query("SELECT * FROM Usuaris;");
 
@@ -201,65 +113,6 @@ class Usuaris {
     }
 
     return $usuaris;
-  }
-
-  /**
-   * ## insertarUsuari()
-   * Mitjançant aquesta funció s'inserta un usuari a la base de dades.
-   *
-   * @author Roger Forner Fabre
-   */
-  public function insertarUsuari() {
-    $db = Connectar::connexio();
-
-    $db->query("INSERT INTO Usuaris(DNI, Nom, Cognom, Adreca, Poblacio, Provincia, Nacionalitat, Adreca_electronica, Telefon, Data_naixement)
-		VALUES(
-			'$this->dni',
-			'$this->nom',
-			'$this->cognom',
-			'$this->adreca',
-			'$this->poblacio',
-			'$this->provincia',
-			'$this->nacionalitat',
-			'$this->email',
-			'$this->telefon',
-			'$this->naixement'
-		)");
-  }
-
-  /**
-   * ## eliminarUsuari()
-   * Mitjançant aquesta funció s'elimina un usuari de la base de dades.
-   *
-   * @author Roger Forner Fabre
-   */
-  public function eliminarUsuari() {
-    $db = Connectar::connexio();
-
-    $db->query("DELETE FROM Usuaris WHERE ID_Usuari = $this->id");
-  }
-
-  /**
-   * ## editarUsuari()
-   * Mitjançant aquesta funció s'elimina un usuari de la base de dades.
-   *
-   * @author Roger Forner Fabre
-   */
-  public function editarUsuari() {
-    $db = Connectar::connexio();
-
-    $db->query("UPDATE Usuaris
-    SET DNI = '$this->dni',
-    Nom = '$this->nom',
-    Cognom = '$this->cognom',
-    Adreca = '$this->adreca',
-    Poblacio = '$this->poblacio',
-    Provincia = '$this->provincia',
-    Nacionalitat = '$this->nacionalitat',
-    Adreca_electronica = '$this->email',
-    Telefon = '$this->telefon',
-    Data_naixement = '$this->naixement'
-    WHERE ID_Usuari = $this->id");
   }
 }
 ?>

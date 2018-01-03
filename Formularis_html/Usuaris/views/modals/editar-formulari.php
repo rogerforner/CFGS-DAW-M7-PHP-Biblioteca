@@ -74,7 +74,7 @@
 <!-- Telèfon -->
 <div class="form-group">
   <label for="usuariTel">Telèfon</label>
-  <input type="number" name="telefon" value="<?= $dada["Telefon"]; ?>" min="100000000" max="900000000" class="form-control" id="usuariTel" aria-describedby="telAjuda" required>
+  <input type="number" name="telefon" value="<?= $dada["Telefon"]; ?>" min="100000000" max="999999999" class="form-control" id="usuariTel" aria-describedby="telAjuda" required>
   <small id="telAjuda" class="form-text text-muted">Telèfon de l'usuari.</small>
 </div>
 

@@ -1,9 +1,10 @@
-<?php // Connectar amb la Base de Dades.
+<?php
 /**
- * Establir una connexió a la base de dades biblioteca, amb l'usuari gru1 i
- * clau d'accés grup1, tot això sobre el servidor localhost. També es defineix
- * que el conjunt de caràcters que serà emprat quan s'envíen dades al servidor
- * serà UTF8.
+ * Establir una connexió a la base de dades biblioteca, amb l'usuari grup1 i
+ * clau d'accés grup1, tot això sobre el servidor localhost.
+ *
+ * També es defineix que el conjunt de caràcters que serà emprat quan s'enviïn
+ * les dades al servidor serà UTF8.
  *
  * @author Roger Forner Fabre
  */
@@ -17,7 +18,7 @@ class Connectar {
     } else {
       echo '<script>console.log("Connexió incorrecta.")</script>';
     }
-    
+
     return $connexio;
   }
 }

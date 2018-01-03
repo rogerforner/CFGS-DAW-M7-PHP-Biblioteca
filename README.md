@@ -2,10 +2,10 @@
 > Desenvolupament d'Aplicacions Web (DAW).
 
 **Taula de continguts**
-- [Instal·lació](#instal·lació)
- - [Clonar el repositori](#clonar-el-repositori)
- - [Documentació](#documentació)
-- [Manual d'ús](#manual-d-us)
+- [Instal·lació](#installació)
+  - [Clonar el repositori](#clonar-el-repositori)
+  - [Documentació](#documentació)
+- [Manual d'ús](#manual-d'us)
 - [Equip (grup 1)](#equip-grup-1)
 
 ## Instal·lació

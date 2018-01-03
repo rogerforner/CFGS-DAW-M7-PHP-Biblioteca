@@ -5,7 +5,7 @@
 - [Instal·lació](#installació)
   - [Clonar el repositori](#clonar-el-repositori)
   - [Documentació](#documentació)
-- [Manual d'ús](#manual-d'ús)
+- [Manual d'ús](#manual)
 - [Equip (grup 1)](#equip-grup-1)
 
 ## Instal·lació
@@ -28,7 +28,7 @@ Manual d’instal·lació del servidor:
 Manual d’instal·lació de l’aplicació:
 - URL_MANUAL
 
-## Manual d'ús
+## Manual
 Manual d'ús de l’aplicació:
 - URL_MANUAL
 

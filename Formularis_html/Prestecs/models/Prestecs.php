@@ -14,6 +14,7 @@ require_once("Exemplars.php");
  * ## llistarPrestecs()
  * ## llistarPrestecsTornats()
  * ## comptarPrestecs()
+ * ## comptarExemplarsPrestats()
  * ## insertarPrestec()
  * ## eliminarPrestec()
  * ## editarPrestec()

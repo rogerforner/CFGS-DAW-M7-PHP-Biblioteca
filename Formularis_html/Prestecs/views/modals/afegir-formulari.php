@@ -1,13 +1,14 @@
-<?php // Controlador usuaris-index.php
+<?php
 /**
  * Model.
- * Es crida als models Connectar i Usuaris per poder treballar amb aquests.
+ * Es crida als models Connectar, Usuaris i Prestecs per poder treballar amb aquests.
  *
  * @author Roger Forner Fabre
  */
 require_once("models/Connectar.php");
 require_once("models/Usuaris.php");
 require_once("models/Exemplars.php");
+require_once("models/Prestecs.php");
 
 /**
  * Es crea un objecte $usuaris, el qual es construeix partint de la Classe Usuaris(),
@@ -54,7 +55,7 @@ $dataTornarPrestec = date('Y-m-j', $dataTornarPrestec);
       <label for="prestecUsuari">Usuari</label>
       <select name="usuari" class="form-control" id="prestecUsuari" aria-describedby="usuariAjuda" required>
         <?php foreach ($dadesUsuaris as $dada): ?>
-        <option value="<?= $dada["ID_Usuari"]; ?>"><?= $dada["Nom"]; ?> <?= $dada["Cognom"]; ?></option>
+          <option value="<?= $dada["ID_Usuari"]; ?>"><?= $dada["Nom"]; ?> <?= $dada["Cognom"]; ?></option>
         <?php endforeach; ?>
       </select>
       <small id="usuariAjuda" class="form-text text-muted">Usuari al qual se li fa el préstec.</small>
@@ -65,8 +66,19 @@ $dataTornarPrestec = date('Y-m-j', $dataTornarPrestec);
     <div class="form-group">
       <label for="prestecExemplar">Exemplar</label>
       <select name="exemplar" class="form-control" id="prestecExemplar" aria-describedby="exemplarAjuda" required>
-        <?php foreach ($dadesExemplars as $dada): ?>
-        <option value="<?= $dada["ID_Exemplar"]; ?>"><?= $dada["Titol"]; ?></option>
+        <?php
+        $totalExemplars    = new Exemplars();
+        $exemplarsPrestats = new Prestecs();
+        // $exemplarsPrestats->comptarExemplarsPrestats()
+        // $exemplarsRestants = $totalExemplars->totalExemplars();
+
+        foreach ($dadesExemplars as $dada):
+          $idExemplar = $dada["ID_Exemplar"];
+          $exPrestats = $exemplarsPrestats->comptarExemplarsPrestats($idExemplar);
+          $exTotal    = $totalExemplars->totalExemplars($idExemplar);
+          $exRestants = $exTotal[0]['Quantitat_exemplars'] - $exPrestats[0]['Total'];
+        ?>
+          <option value="<?= $idExemplar; ?>">(<?= $exRestants; ?>) <?= $dada["Titol"]; ?></option>
         <?php endforeach; ?>
       </select>
       <small id="exemplarAjuda" class="form-text text-muted">L'exemplar que es presta.</small>

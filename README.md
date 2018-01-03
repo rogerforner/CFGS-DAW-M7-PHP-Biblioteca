@@ -23,7 +23,7 @@ $ git clone git@github.com:rogerforner/M07_UF3_ABP1_biblioteca.git nomDesitjat
 ```
 ### Documentació
 Manual d’instal·lació del servidor:
-- URL_MANUAL
+- [Servidor LAMP, Ubuntu 16.04](https://github.com/rogerforner/M07_UF3_ABP1_biblioteca/blob/master/fitxers/manual-lamp-ubuntu1604.pdf)
 
 Manual d’instal·lació de l’aplicació:
 - URL_MANUAL

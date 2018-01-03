@@ -5,7 +5,7 @@
 - [Instal·lació](#installació)
   - [Clonar el repositori](#clonar-el-repositori)
   - [Documentació](#documentació)
-- [Manual d'ús](#manual-d'us)
+- [Manual d'ús](#manual-d'ús)
 - [Equip (grup 1)](#equip-grup-1)
 
 ## Instal·lació

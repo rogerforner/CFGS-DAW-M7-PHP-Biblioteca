@@ -1,12 +1,12 @@
 <?php include_once("views/head.php"); ?>
 <?php include_once("views/navbar.php"); ?>
 
-<div class="container">
+<div id="main" class="container">
   <!-- Afegir -->
   <div class="row">
     <div class="col-md-12">
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#afegirPrestecModal">
-			  <i class="fa fa-plus" aria-hidden="true"></i> Afegir Prestec
+			  <i class="fa fa-plus" aria-hidden="true"></i> Afegir Préstec
 			</button>
     </div><!-- /.col -->
     <div class="col-md-12">

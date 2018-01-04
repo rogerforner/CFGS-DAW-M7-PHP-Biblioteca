@@ -1,6 +1,6 @@
-<?php // model Usuaris.php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+<?php
+// error_reporting(E_ALL);
+// ini_set('display_errors', '1');
 /*******************************************************************************
  *********************************************************************** "Índex"
  * # Constructors
@@ -377,7 +377,7 @@ class Usuaris {
    * @return existeixEmail Retorna un boolean.
    */
   public function existeixEmail($email) {
-    $db        = Connectar::connexio();
+    $db = Connectar::connexio();
 
     $query = $db->query("SELECT Adreca_electronica FROM Usuaris
       WHERE Adreca_electronica = '$email';
@@ -385,7 +385,7 @@ class Usuaris {
 
     $files = $query->num_rows;
 
-    if ($files > 0) {
+    if ($files >= 1) {
       $existeixEmail = true;
 
     } else {

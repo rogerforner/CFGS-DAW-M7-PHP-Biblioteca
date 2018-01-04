@@ -26,11 +26,11 @@ Manual d’instal·lació del servidor:
 - [Servidor LAMP, Ubuntu 16.04](https://github.com/rogerforner/M07_UF3_ABP1_biblioteca/blob/master/fitxers/grup1_Manual_LAMP_Ubuntu1604.pdf)
 
 Manual d’instal·lació de l’aplicació:
-- URL_MANUAL
+- [Instal·lació i Configuració](https://github.com/rogerforner/M07_UF3_ABP1_biblioteca/blob/master/fitxers/grup1_Manual_Installacio.pdf)
 
 ## Manual
 Manual d'ús de l’aplicació:
-- URL_MANUAL
+- [Com funciona?](https://github.com/rogerforner/M07_UF3_ABP1_biblioteca/blob/master/fitxers/grup1_Manual_Us.pdf)
 
 ## Equip (grup 1)
 - Jordi S.

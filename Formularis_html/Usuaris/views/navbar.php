@@ -11,9 +11,12 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Autors</a></li>
-        <li><a href="#">Generes</a></li>
+        <li><a href="../Index_autors.php">Autors</a></li>
+        <li><a href="../index_genere.php">Generes</a></li>
         <li class="active"><a href="#">Usuaris</a></li>
+        <li><a href="../Index_prestecs.php">Prestecs</a></li>
+        <li><a href="../index_stock.php">Stock</a></li>
+        <li><a href="../../contactar.html">Contactar</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

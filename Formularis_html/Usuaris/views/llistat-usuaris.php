@@ -26,6 +26,15 @@ require_once("models/Usuaris.php");
 $usuaris = new Usuaris();
 $dades   = $usuaris->llistarUsuaris();
 ?>
+<?php if (isset($_GET['info'])): ?>
+  <?php if ($_GET["info"] == "1"): ?>
+    <!-- 3 préstecs. -->
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Compte!</strong> El correu electrònic que has introduït ja existeix.
+    </div>
+  <?php endif; ?>
+<?php endif; ?>
 
 <div class="table-responsive">
   <table id="myTable" class="table table-condensed table-hover">

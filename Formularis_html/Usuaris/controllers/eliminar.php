@@ -1,4 +1,4 @@
-<?php // Controlador usuaris-index.php
+<?php
 /**
  * Model.
  * Es crida als models Connectar i Usuaris per poder treballar amb aquests.

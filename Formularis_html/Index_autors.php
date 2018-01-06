@@ -25,7 +25,13 @@ $conexion->close();
     <!-- Custom styles for this template -->
     <link href="Starter%20Template%20for%20Bootstrap_files/starter-template.css" rel="stylesheet">
     <script src="Starter%20Template%20for%20Bootstrap_files/ie-emulation-modes-warning.js"></script>
-
+    <style media="screen">
+      body{
+        background-image: url("../fondoweb.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+    </style>
   </head>
   <body>
 
@@ -38,13 +44,18 @@ $conexion->close();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Biblioteca</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Autors</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li class="active"><a href="Index_autors.php">Autors</a></li>
+            <li><a href="Index_Llibres.php">Llibres</a></li>
             <li><a href="index_genere.php">Generes</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="Index_usuaris.php">Usuaris</a></li>
+            <li><a href="Index_prestecs.php">Prestecs</a></li>
+            <li><a href="index_stock.php">Stock</a></li>
+            <li><a href="contactar.html">Contactar</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

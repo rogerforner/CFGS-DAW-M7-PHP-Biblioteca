@@ -40,9 +40,14 @@
           <a class="navbar-brand" href="#">Biblioteca</a> -->
           <ul class="nav navbar-nav">
             <a class="navbar-brand" href="#" style="color:white">Biblioteca</a>
-            <li class="active"><a href="#">Autors</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="Index_autors.php">Autors</a></li>
+            <li class="active"><a href="Index_Llibres.php">Llibres</a></li>
             <li><a href="index_genere.php">Generes</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="Index_usuaris.php">Usuaris</a></li>
+            <li><a href="Index_prestecs.php">Prestecs</a></li>
+            <li><a href="index_stock.php">Stock</a></li>
+            <li><a href="contactar.html">Contactar</a></li>
           </ul>
         </div>
       </div>

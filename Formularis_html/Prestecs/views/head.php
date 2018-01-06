@@ -33,6 +33,16 @@
     table form {
       text-align: left;
     }
+    body {
+      background-image: url("assets/fondoweb.jpg");
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    #main.container {
+      background-color: #fff;
+      margin-bottom: 32px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
   </style>
 </head>
 <body>

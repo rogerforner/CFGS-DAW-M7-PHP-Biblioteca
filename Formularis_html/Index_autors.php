@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include_once('../dades.php');
+include_once('dades.php');
 include_once('Autors/modals.php');
 
 $cadena= "select * from Autors";
@@ -169,7 +169,6 @@ $(function a() {
       url: "Autors/altaautors.php",
       data: ('nom='+Nom+'&cognom='+Cognom+'&nacionalitat='+Nacionalitat),
       success: function(resposta){
-        alert(resposta);
         if(resposta==1){
           $('#mensajes').html('Autor registrat correctament');
 

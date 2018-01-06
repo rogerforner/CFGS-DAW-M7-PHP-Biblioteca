@@ -1,5 +1,5 @@
 <?php
-include_once('autors.php');
+include_once('Class_autors.php');
 $autors = new autors();
 $id=$_POST["ID_Autor"];
 $nom=$_POST["Nom"];

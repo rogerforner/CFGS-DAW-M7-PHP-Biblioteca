@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-include_once('../dades.php');
+include_once('dades.php');
 $cadena= "SELECT Exem.ID_Exemplar,Llib.Titol,Exem.estatus From Exemplars as Exem INNER JOIN Llibres as Llib on Exem.ID_Llibres=Llib.ID_Llibres ORDER BY Exem.ID_Llibres, Exem.estatus";
 $result = $conexion->query($cadena);
 $conexion->close();

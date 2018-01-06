@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include_once('../dades.php');
+include_once('dades.php');
 $cadena= "select * from Generes";
 $result = $conexion->query($cadena);
 $conexion->close();

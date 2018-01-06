@@ -1,5 +1,5 @@
 <?php
-  include_once('../dades.php');
+  include_once('dades.php');
   include_once('Llibres/Modals.php');
   $cadena= "select * from Llibres";
   $result = $conexion->query($cadena);

@@ -76,7 +76,7 @@
           <!-- ID -->
           <div class="form-group">
             <label for="Llibretitol">ID</label>
-            <input type="text" name="eid" id="edit_id"class="form-control" aria-describedby="nomAjuda" required>
+            <input type="text" name="eid" id="edit_id"class="form-control" aria-describedby="nomAjuda" readonly="readonly">
             <small class="form-text text-muted">ID</small>
           </div>
           <!-- Titol -->

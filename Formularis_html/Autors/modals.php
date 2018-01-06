@@ -60,7 +60,7 @@
             <div class="col">
               <div class="form-group">
                 <label for="autorNom">ID</label>
-                <input type="text" name="ID_Autor" class="form-control" id="aid" aria-describedby="nomAjuda" required>
+                <input type="text" name="ID_Autor" class="form-control" id="aid" aria-describedby="nomAjuda" readonly="readonly">
                 <small class="form-text text-muted">El nom de l'autor.</small>
               </div>
             </div>

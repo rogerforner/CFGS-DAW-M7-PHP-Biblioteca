@@ -25,11 +25,13 @@ require_once("models/Prestecs.php");
  * @var prestecsComptar Objecte de la classe Prestecs().
  * @var cPrestecs Comptador per als préstecs.
  * @var prestecsTotal Total de préstecs que té un usuari.
+ * @var dataActual Emprada per saber si s'ha superat la data de devolució.
  */
-$prestecs         = new Prestecs();
-$dades            = $prestecs->llistarPrestecs();
-$prestecsComptar  = new Prestecs();
-$cPrestecs        = 0;
+$prestecs        = new Prestecs();
+$dades           = $prestecs->llistarPrestecs();
+$prestecsComptar = new Prestecs();
+$cPrestecs       = 0;
+$dataActual      = date('Y-m-j');
 ?>
 <?php if (isset($_GET['info'])): ?>
   <?php if ($_GET["info"] == "1"): ?>
@@ -79,7 +81,7 @@ $cPrestecs        = 0;
         <td><?= $dada["Usuari_nom"]; ?> <?= $dada["Usuari_cognom"]; ?></td>
         <td><?= $dada["Llibre_titol"]; ?></td>
         <td><?= $dada["Data_sortida"]; ?></td>
-        <td <?= ($dada["Data_maxima_devolucio"] > $dada["Data_maxima_devolucio"] ? 'class="text-danger"' : ''); ?>><?= $dada["Data_maxima_devolucio"]; ?></td>
+        <td <?= ($dada["Data_maxima_devolucio"] < $dataActual ? 'class="text-danger"' : ''); ?>><?= $dada["Data_maxima_devolucio"]; ?></td>
         <td>
           <div class="btn-group" role="group" aria-label="...">
             <!-- Editar -->

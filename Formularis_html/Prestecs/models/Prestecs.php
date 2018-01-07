@@ -478,6 +478,7 @@ class Prestecs {
    * POST del formulari.
    * @var exemplar ID de l'exemplar, obtingut a través del métode POST del formulari.
    * @var usuari ID de l'usuari, obtingut a través del métode POST del formulari.
+   * @var dataActual Emprada per saber si s'ha superat la data de devolució.
    * @var prestecs Objecte de la classe Prestecs().
    * @var exemplars Objecte de la classe Exemplars().
    * @var exemplarsP Objecte de la classe Prestecs().
@@ -494,6 +495,7 @@ class Prestecs {
     $dataMaxDevolucio = $this->dataMaxDevolucio;
     $exemplar         = $this->exemplar;
     $usuari           = $this->usuari;
+    $dataActual       = date('Y-m-j');
     $prestecs         = new Prestecs();
     $exemplars        = new Exemplars();
     $exemplarsP       = new Prestecs();
@@ -509,7 +511,7 @@ class Prestecs {
       $resultat = 1;
 
     // L'usuari ha superat el plaç d'entrega?
-    } elseif ($dataMaxDevolucio > $dataMaxDevolucio) {
+    } elseif ($dataMaxDevolucio < $dataActual) {
       $resultat = 2;
 
     // Queden exemplars que prestar?

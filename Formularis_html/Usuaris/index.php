@@ -8,6 +8,9 @@
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#afegirUsuariModal">
 			  <i class="fa fa-plus" aria-hidden="true"></i> Afegir Usuari
 			</button>
+      <a href="informeusuaris.php"><button align="right" class="btn btn-primary btn-lg" >
+  			  Veure informe
+			</button></a>
     </div><!-- /.col -->
     <div class="col-md-12">
       <?php include_once("views/modals/afegir.php"); ?>

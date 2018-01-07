@@ -24,6 +24,7 @@ require_once("models/Prestecs.php");
  * @var dades Conté un Array amb les dades dels prestecs.
  * @var dataMaxDev Conté com a valor la data de màxima devolució. Emprada per
  * poder mostrar un missatge que avisa si està o no fora del plaç d'entrega.
+ * @var dataActual Emprada per saber si s'ha superat la data de devolució.
  */
 $prestecs = new Prestecs();
 $dades   = $prestecs->llistarPrestecs();
@@ -56,8 +57,9 @@ $dades   = $prestecs->llistarPrestecs();
             <!-- Missatge sobre l'estat del préstec. -->
             <?php
             $dataMaxDev = $dada["Data_maxima_devolucio"];
+            $dataActual = date('Y-m-j');
 
-            if ($dataMaxDev > $dataMaxDev): ?>
+            if ($dataMaxDev < $dataActual): ?>
               <p class="text-danger">Fora del plaç d'entrega.</p>
             <?php else: ?>
               <p class="text-success">Dintre del plaç d'entrega.</p>

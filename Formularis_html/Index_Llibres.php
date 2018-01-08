@@ -1,9 +1,19 @@
 <?php
   include_once('dades.php');
-  include_once('Llibres/Modals.php');
   $cadena= "select * from Llibres";
   $result = $conexion->query($cadena);
+  $cadena2= "select * from Generes";
+  $result2 = $conexion->query($cadena2);
+
   $conexion->close();
+
+  // $cadena2= "select * from Genere";
+  // $conexio2=new mysqli();
+  // @$conexio2->connect($server,$usuari,$passwd,$database);
+  // $result2 = $conexio2->query($cadena2);
+  // $conexio2->close();
+  include_once('Llibres/Modals.php');
+
 ?>
 <html lang="es">
   <head>
@@ -136,8 +146,6 @@
 </html>
 <!-- Seccio de Scripts/Ajax -->
 
-
-
 <script language= JavaScript type=text/JavaScript>
   //Script per al buscador de la taula
   $(document).ready(function(){
@@ -162,9 +170,12 @@
     $("#edit_quantitat_exemplars").val(d[7]);
   }
   //Script per crear i validar un LLibre
-  $(function a() {
+  $(function enviarautor() {
+
+
     $('#enviarautor').on('click', function(e){
       e.preventDefault();
+      // alert(f[dades].length);
       var titol = $('#ltitol').val();
       var nedicio = $('#lnedicio').val();
       var lloc_publicacio = $('#llloc_publicacio').val();
@@ -172,13 +183,14 @@
       var any_edicio = $('#lany_edicio').val();
       var isbn = $('#lISBN').val();
       var quantitat_exemplars = $('#lquantitat_exemplars').val();
+      var genere = $('#idgenere').val();
       if(titol=="" || nedicio=="" || lloc_publicacio==""|| any_edicio==""|| isbn==""|| quantitat_exemplars==""){
         $('#mensajes').html('Completa els camps');
       }else{
         $.ajax({
           type: "POST",
           url: "Llibres/AltaLlibres.php",
-          data: ('titol='+titol+'&nedicio='+nedicio+'&lloc_publicacio='+lloc_publicacio+'&editorial='+editorial+'&any_edicio='+any_edicio+'&isbn='+isbn+'&quantitat_exemplars='+quantitat_exemplars),
+          data: ('titol='+titol+'&nedicio='+nedicio+'&lloc_publicacio='+lloc_publicacio+'&editorial='+editorial+'&any_edicio='+any_edicio+'&isbn='+isbn+'&quantitat_exemplars='+quantitat_exemplars+'&genere='+genere),
           success: function(resposta){
             if(resposta==1){
               $('#mensajes').html('Llibre registrat correctament');

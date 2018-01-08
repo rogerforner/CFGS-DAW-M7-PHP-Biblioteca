@@ -1,5 +1,6 @@
 <!-- Aquest fitxer conte els modals de crear i editar -->
 <!-- Modal Crear-->
+
 <div class="modal fade" id="addautor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -8,7 +9,7 @@
         <h4 class="modal-title" id="myModalLabel">Crear</h4>
       </div>
       <div class="modal-body">
-        <form action="" method="post">
+        <form name="formulari" id="formulari" action="" method="post">
           <!-- Titol -->
           <div class="form-group">
             <label for="Llibretitol">Titol</label>
@@ -52,7 +53,28 @@
             <input type="text" name="quantitat_exemplars" id="lquantitat_exemplars" class="form-control" aria-describedby="nomAjuda" required>
             <small class="form-text text-muted">Quantitat exemplars</small>
           </div>
-          <button type="submit" id="enviarautor" class="btn btn-primary">Afegir</button>
+          <div class="form-group">
+            <label for="lquantitat_exemplars">Introdueix el numero de genere separat per ","</label><br/>
+
+            <?php
+            $dato1= array();
+            $contador=0;
+            $valor="";
+            while ($dades2=$result2->fetch_assoc()) {
+              $valor=$dades2['ID_Genere'];
+              $dato1 = array($valor);
+
+                echo '
+                  <label id="idgenere[]" value="'.$dades2['ID_Genere'].'">'.$dades2['ID_Genere'].' '.$dades2['Nom'].',
+                  </label>
+                  ';
+
+              }
+            ?>
+            <input type="text" name="quantitat_exemplars" id="idgenere" class="form-control" aria-describedby="nomAjuda" required>
+            <small class="form-text text-muted">exemple: 1,3,5</small>
+          </div>
+          <button type="submit" id="enviarautor" onclick="enviarautor()" class="btn btn-primary">Afegir</button>
           <span id="mensajes"></span>
         </form>
         <div class="modal-footer">

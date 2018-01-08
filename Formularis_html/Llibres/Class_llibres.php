@@ -16,6 +16,8 @@ class Llibres{
 	private $any_edicio;
 	private $ISBN;
 	private $Quantitat_exemplars;
+	private $Genere;
+
 
 	//Constructor de la classe Llibres
 	public function __construct()
@@ -41,9 +43,20 @@ class Llibres{
 		$this->ISBN=$isbn;
 		$this->Quantitat_exemplars=$quantitat_exemplars;
  	}
- 	public function __construct8($id,$titol,$nedicio,$lloc_publicacio,$editorial,$any_edicio,$isbn,$quantitat_exemplars)
+ 	// public function __construct8($id,$titol,$nedicio,$lloc_publicacio,$editorial,$any_edicio,$isbn,$quantitat_exemplars)
+ 	// {
+	//  	$this->id=$id;
+	// 	$this->titol=$titol;
+	//   $this->nedicio=$nedicio;
+	// 	$this->Lloc_publicacio=$lloc_publicacio;
+	// 	$this->editorial=$editorial;
+	// 	$this->any_edicio=$any_edicio;
+	// 	$this->ISBN=$isbn;
+	// 	$this->Quantitat_exemplars=$quantitat_exemplars;
+	// }
+	public function __construct8($titol,$nedicio,$lloc_publicacio,$editorial,$any_edicio,$isbn,$quantitat_exemplars,$genere)
  	{
-	 	$this->id=$id;
+
 		$this->titol=$titol;
 	  $this->nedicio=$nedicio;
 		$this->Lloc_publicacio=$lloc_publicacio;
@@ -51,6 +64,8 @@ class Llibres{
 		$this->any_edicio=$any_edicio;
 		$this->ISBN=$isbn;
 		$this->Quantitat_exemplars=$quantitat_exemplars;
+		$this->Genere=$genere;
+
 	}
 //Setters & getters
 	public function gettitol(){
@@ -78,6 +93,8 @@ class Llibres{
 	//Funcio per introduir un nou llibre a la BD
 	public function introduirdades(){
 		include_once('../dades.php');
+		// $conexion->close();
+
 		$cadena1="select * from Llibres where ISBN='$this->ISBN'";
 		$result=$conexion->query($cadena1);
 	 	$fila=mysqli_num_rows($result);
@@ -90,8 +107,39 @@ class Llibres{
 			'$this->any_edicio',
 			'$this->ISBN',
 			'$this->Quantitat_exemplars')";
+
+			// $cadena3= "insert into Relacio_llibres_generes(Llibres,Genere)Values(
+			// $this->ISBN,
+			// $this->Genere
+			// )";
+			// if($conexion->query($cadena3)==TRUE){
+			// }
+			// else{
+			// 	echo "error: ".$cadena3.$conexion->error;
+			// }
+
+			// $cadena11="select ID_Llibres from Llibres where ISBN=$this->ISBN";
+			// $result2=$conexion->query($cadena11);
+      //
+			// if($conexion->query($cadena11)==TRUE){
+			// 	// $cadena3= "insert into Relacio_llibres_generes(Llibres,Genere)Values(
+			// 	// $result2,
+			// 	// $this->Genere
+			// 	// )";
+			// 	// $conexion->query($cadena3);
+			// 	echo 1;
+			// }else {
+			// 	echo "error: ".$cadena11.$conexion->error;
+			// }
+      //
+
+
+
+
 		 	if($conexion->query($cadena)==TRUE){
-			  echo 1;;
+
+			  //echo 1;
+				echo 1;
 			}else {
 				echo "error: ".$cadena.$conexion->error;
 			}
@@ -99,6 +147,42 @@ class Llibres{
 			echo 2;
 		}
 	 	$conexion->close();
+
+		include_once('../dades.php');
+		$conexion2 = new mysqli();
+		@$conexion2->connect($server, $usuari, $passwd, $database);
+		$re2;
+		$cadena11="select ID_Llibres from Llibres where ISBN='$this->ISBN'";
+		$re=$conexion2->query($cadena11);
+
+		while ($row = $re->fetch_assoc()) {
+		    $re2= $row['ID_Llibres'];
+		}
+		$myArray = explode(',', $this->Genere);
+		foreach ($myArray as $key => $value) {
+			$cadena3= "insert into Relacio_llibres_generes(Llibres,Genere)Values(
+			'$re2',
+			'$value'
+			)";
+		}
+
+		$conexion2->close();
+	}
+
+	public function introduirgeneres(){
+		include_once('../dades.php');
+		$conexion2 = new mysqli();
+		@$conexion2->connect($server, $usuari, $passwd, $database);
+
+		$cadena11="select ID_Llibres from Llibres where ISBN=$this->ISBN";
+		if($conexion2->query($cadena11)==TRUE){
+		}
+		else{
+			echo "error: ".$cadena3.$conexion2->error;
+		}
+
+		$conexion2->close();
+
 	}
 	//Funcio per eliminar un Llibre de la BD
 	public function eliminardades(){
